@@ -1,0 +1,60 @@
+.usuarioCuerpo {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    margin-top: 9rem;
+    margin-left: 24.8rem;
+    width: auto;
+    height: auto;
+}
+
+.username {
+    font-weight: 'bold';
+    font-size: 45px;
+    color: #ABADAE;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+.usermail {
+
+    color: #ABADAE;
+    font-size: 20px;
+    text-align: center;
+  }
+
+.usernamelogo {
+    font-size: 70px;
+    position: 'absolute';
+    color: 'white';
+  }
+
+.volver {
+    background-color: rgb(0, 0, 0);
+    text-decoration: none;
+    width: 10rem;
+    height: 2.3rem;
+    border-radius: 5rem;
+    font-size: 17px;
+    color: azure;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.logoUser {
+    background-color: #ABADAE;
+    border-radius: 100%;
+    width: 20rem;
+    height: 20rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.letraslogo {
+    font-size: 10rem;
+    text-align: center;
+    color: white;
+}

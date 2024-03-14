@@ -1,0 +1,76 @@
+.cuerpo {
+    display: flex;
+    margin-left: 10rem;
+    margin-top: 3rem;
+    align-items: center;
+    font-family: 'Jost', sans-serif;
+    background-color: rgb(255, 255, 255);
+    align-content: contain;
+  }
+
+  .header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    width: 90px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease-in-out;
+    align-items: center;
+    justify-content: center;
+  }
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px; /* Ancho del borde */
+    background-color: #ccc; /* Color del borde */
+    margin-top: 25%; /* Ajusta la altura del borde según tus preferencias */
+    margin-bottom: 25%; /* Ajusta la altura del borde según tus preferencias */
+  }
+
+  .header:hover {
+    width: 150px; /* Ajusta el ancho deseado al pasar el mouse */
+}
+
+.icon {
+  font-size: 24px; /* Ajusta el tamaño según tus necesidades */
+  color: grey;    /* Color por defecto */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
+  padding: 1rem;
+}
+
+.selected {
+  color: black;    /* Color cuando el ícono está seleccionado */
+}
+
+.iconos {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.logoPrincipal {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 45rem;
+
+}
+
+.perfil {
+  bottom: 0;
+  margin-top: -40;
+
+}
+
+
+
+
+

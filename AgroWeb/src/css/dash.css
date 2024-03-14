@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+.titulo2 {
+    font-size: 40px;
+    font-family: "Josefin Sans", sans-serif;
+    color: black;
+}
+
+.titulo4 {
+    font-size: 40px;
+    font-family: "Josefin Sans", sans-serif;
+    color: black;
+    margin-top: -2rem;
+}
+
+.titulo5 {
+    font-size: 40px;
+    font-family: "Josefin Sans", sans-serif;
+    color: black;
+    margin-top: 1rem;
+}
+
+.datosDash {
+    flex-direction: row;
+    display: flex;
+}
+
+.recomendaciones {
+    background: linear-gradient(rgb(0, 0, 0), rgb(74, 74, 74));
+    width: 20rem;
+    height: 36rem;
+    border-radius: 2rem;
+    overflow-y: auto;
+    color: white;
+    font-size: 1rem;
+    margin-top: 0rem;
+    margin-left: 1rem;
+}
+
+.recomendaciones::-webkit-scrollbar {
+    width: 0; 
+}
+
+.tituloR {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.tituloR2 {
+    color: white;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.datos {
+    width: 55rem;
+    height: auto;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    background-color: rgb(241, 241, 241);
+    width: 16rem;
+    height: 16rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    flex-direction: column;
+}
+
+
+.boxTitulo1 {
+    font-size: 22px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: rgb(33, 33, 33);
+}
+
+.boxTitulo2 {
+    font-size: 80px;
+    text-align: center;
+    margin-top: 13px;
+    color: rgb(119, 119, 119);
+    
+}
+.boxTitulo3 {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 28px;
+    color: rgb(118, 118, 118);
+    font-weight: bold;
+}
+
+.semaforo {
+    height: 29px;
+    width: 80px;
+    margin-top: -2.5rem;
+}
+
+.sistema {
+    width: 7.5rem;
+    height: 7.5rem;
+}
+
+.contenidoR {
+    color: white;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 2rem;
+}
+
+.contenidoR ul {
+    list-style-type: disc; 
+    padding-left: 2rem; 
+    margin-top: 1.5rem;
+}
+
+
+
+
