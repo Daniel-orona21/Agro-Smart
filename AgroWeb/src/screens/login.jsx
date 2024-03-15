@@ -6,6 +6,14 @@ import { useForm } from 'react-hook-form';
 
 // Crea un componente funcional para tu barra de navegación deslizante
 const Login = () => {
+
+  const { register, handleSubmit, errors } = useForm();
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    const res=await register(data);
+    console.log(res)
+
   return (
     <div className="main">    
       <p className="titulo">Agro Smart Tech</p>
@@ -17,7 +25,9 @@ const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
       
           <input type="text"  {...register("username",{ required: true })} />
+          <input type="text"  {...register("email",{ required: true })} />
           <input type="text"  {...register("password",{ required: true })} />
+
           <input type="submit" />
         </form>
 
@@ -35,5 +45,5 @@ const Login = () => {
     </div>
   );
 };
-
+}
 export default Login;
