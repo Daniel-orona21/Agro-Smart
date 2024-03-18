@@ -1,4 +1,4 @@
-import Pez from '../models/pez.model';
+import Pez from '../models/pez.model.js';
 // let existProd = true
 const fechaActual = new Date();
 
@@ -23,8 +23,8 @@ export const createPez=async(req,res)=>{
         console.log(error)
     }
     
+    res.send("Pez registrado");
 }
-export const Pez=(req,res)=>res.send("Pez registrado");
 
 export const updatePez = async (req, res) => {
     const { username } = req.body;

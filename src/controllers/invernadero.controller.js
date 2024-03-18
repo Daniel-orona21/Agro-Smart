@@ -27,8 +27,8 @@ export const createInvernadero=async(req,res)=>{
         console.log(error)
     }
     
+    res.send("Invernadero registrado");
 }
-export const Invernadero=(req,res)=>res.send("Invernadero registrado");
 
 export const updateInvernadero = async (req, res) => {
     const { name } = req.body;
