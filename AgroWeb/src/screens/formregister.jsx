@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
-import { register } from '../servicios/authService'
+import { addUser } from '../servicios/authService'
 
 function RegisterPage() {
-  const { handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     console.log(data);
-    const res=await register(data);
+    const res=await addUser(data);
     console.log(res)
 }
 

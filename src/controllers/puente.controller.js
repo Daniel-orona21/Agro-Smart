@@ -5,3 +5,6 @@ export {Invernadero, createInvernadero, readInvernadero, updateInvernadero, dele
 
 //este archivo sirve para juntar todos los servicios de back y no importar uno x uno al usarlos
 
+/*    export const Composensores = async(req, res) => {
+    const {UsuarioSensor} =
+    }*/
