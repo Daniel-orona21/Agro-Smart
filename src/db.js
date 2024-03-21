@@ -12,9 +12,12 @@ export const connectDB = async () => {
         console.log(error)     
         conexion = 'notok'   
     }
-    const estado = {
+   
+
+}
+export const estado = async () =>{
+     const estado = {
         estadoConexion : conexion
     }
     res.send(estado)
 }
-export default datos
