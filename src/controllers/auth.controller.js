@@ -2,7 +2,7 @@ import User from '../models/user.model.js'
 import bcrypt from 'bcryptjs'
 import { createAccessToken } from '../libs/jwt.js'; //Esta es la funcion para crear el token 
 
-export const register = async(req, res)=>{
+export const addUser = async(req, res)=>{
     const {
         password, 
         username,
@@ -27,7 +27,7 @@ export const register = async(req, res)=>{
         
 
     } catch (error){
-        res.status(500).json({message: error.message})
+        res.status(501).json({message: error.message})
     }
 };
 
@@ -54,14 +54,14 @@ export const login = async(req, res)=>{
         
 
     } catch (error){
-        res.status(500).json({message: error.message})
+        res.status(501).json({message: error.message})
     }
 //res.send("registrando");
 };
 
 export const logout = (req,res)=>{
     res.cookie('token', "", {expires: new Date(0),});
-    return res.sendStatus(200)
+    return res.sendStatus(201)
 }
 
 export const profile = async (req,res)=>{
@@ -79,3 +79,6 @@ export const profile = async (req,res)=>{
 
     res.send('profile')
 }
+
+
+//los errores se cambiaron a 501 y 201 para diferenciarlos 

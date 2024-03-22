@@ -36,8 +36,8 @@ export const createSensor=async(req,res)=>{
         console.log(error)
     }
     
+    res.send("Sensor registrado");
 }
-export const sensor=(req,res)=>res.send("Sensor registrado");
 
 export const updateSensor = async (req, res) => {
     const { username } = req.body;

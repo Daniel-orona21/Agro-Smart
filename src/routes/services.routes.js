@@ -1,8 +1,10 @@
 import { Router } from "express";
 
-import {sensor, createSensor, readSensor, updateSensor, deleteSensor} from '../controllers/sensor.controller.js'
-import {Pez, createPez, readPez, updatePez, deletePez} from '../controllers/pez.controller.js'
-import {Invernadero, createInvernadero, readInvernadero, updateInvernadero, deleteInvernadero} from '../controllers/invernadero.controller.js'
+import {createSensor, readSensor, updateSensor, deleteSensor} from '../controllers/sensor.controller.js'
+import {createPez, readPez, updatePez, deletePez} from '../controllers/pez.controller.js'
+import {createInvernadero, readInvernadero, updateInvernadero, deleteInvernadero} from '../controllers/invernadero.controller.js'
+
+const router = Router();
 
 router.post('/Sensor',createSensor);
 router.get('/Sensor',readSensor);
