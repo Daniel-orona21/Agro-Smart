@@ -144,7 +144,7 @@ export const  Temperatura = () => {
         <div className='box'>
                <p className='boxTitulo1'>Informe</p>
                <img src={descargando} alt="sistema" className="sistema" />
-               <p className='boxTitulo3'>Download</p>
+               <p className='boxTitulo3'>Descargar</p>
         </div>
       </div>
     </div>
@@ -207,7 +207,7 @@ export const  Temperatura = () => {
         <div className='box'>
                <p className='boxTitulo1'>Informe</p>
                <img src={descargando} alt="sistema" className="sistema" />
-               <p className='boxTitulo3'>Download</p>
+               <p className='boxTitulo3'>Descargar</p>
         </div>
       </div>
     </div>

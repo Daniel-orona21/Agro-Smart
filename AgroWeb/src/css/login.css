@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 .main{
 	margin: 0;
@@ -13,8 +14,11 @@
 	backdrop-filter: blur(5px);
 	align-content: contain;
 	flex-direction: column;
-	
 }
+.error {
+	border: 2px solid rgb(203, 14, 14);
+  }
+  
 .caja{
 	width: 350px;
 	height: 500px;
@@ -38,7 +42,7 @@ label{
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
-	margin: 55px;
+	margin: 40px;
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
@@ -51,11 +55,12 @@ input{
 	display: flex;
 	margin: 20px auto;
 	padding: 10px;
+	margin-bottom: -5px;
 	border: none;
 	outline: none;
 	border-radius: 5px;
 }
-button{
+.button2{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -72,7 +77,38 @@ button{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-.button{
+
+.button2:disabled {
+	background: #ccc; 
+  }
+  
+  .button2:disabled:hover {
+	background: #ccc; 
+  }
+  
+  .button2:enabled {
+	background: #36551d; 
+	transform: scale(1.11);
+  }
+  
+  .button2:enabled:hover {
+	background: #619834; 
+  }
+
+  .botonAlerta {
+	background: #36551d;
+	transition: .5s;
+  }
+
+  .botonAlerta:enabled:hover {
+	background: #619834;
+	transition: .5s;
+  }
+
+ 
+
+
+.button1{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -82,7 +118,7 @@ button{
 	background: #36551d;
 	font-size: 1em;
 	font-weight: bold;
-	margin-top: 40px;
+	margin-top: 70px;
 	outline: none;
 	border: none;
 	border-radius: 5px;
@@ -91,25 +127,27 @@ button{
 	text-decoration: none;
 	align-items: center;
 }
-button:hover{
+.button2:hover{
 	background: #619834;
 }
-.button:hover{
+
+.button1:hover{
 	background: #619834;
 }
+
 .login{
 	height: 480px;
 	background: #eee;
 	border-radius: 60% / 10%;
-	transform: translateY(-180px);
+	transform: translateY(-155px);
 	transition: .8s ease-in-out;
 }
 .login label{
 	color: #36551d;
 	transform: scale(.6);
 	padding-top: 22px;
+	padding-bottom: 20px;
 }
-
 #chk:checked ~ .login{
 	transform: translateY(-470px);
 }
@@ -119,7 +157,6 @@ button:hover{
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
-
 .titulo {
 	color: rgb(255, 255, 255); 
 	text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
@@ -131,8 +168,3 @@ button:hover{
 	font-family: "Quicksand", sans-serif;
 
   }
-
- 
-  
-  
-  
