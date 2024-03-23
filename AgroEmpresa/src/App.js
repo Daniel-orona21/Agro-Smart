@@ -6,7 +6,6 @@ import Benefits from './screens/Benefits';
 import Contact from './screens/Contact';
 import NavBar from './components/NavBar';
 
-
 function App() {
   return (
     <div className="App">
