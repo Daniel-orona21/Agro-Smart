@@ -1,6 +1,5 @@
 import React from 'react'
 import '../css/dash.css';
-
 import semaforo1 from '../img/semaforo1.png';
 import semaforo2 from '../img/semaforo2.png';
 import semaforo3 from '../img/semaforo3.png';
