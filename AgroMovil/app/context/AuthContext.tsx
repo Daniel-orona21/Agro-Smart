@@ -14,7 +14,7 @@ interface AuthProps {
 }
 
 const TOKEN_KEY = 'my-jwt';
-export const API_URL = 'http://172.20.96.199:3000'; //red escuela 172.20.98.143
+export const API_URL = 'http://localhost:3000'; //red escuela 172.20.98.143
 const AuthContext = createContext<AuthProps>({});
 
 export const useAuth = () => {
