@@ -7,6 +7,8 @@ import semaforo3 from '../img/semaforo3.png';
 import bien from '../img/bien.png';
 import mal from '../img/mal.png';
 
+
+
 import { estado, humedadConstante, nPH, nivel, temperatura, temperaturaAmbiente } from './datos';
 
 //Semaforo para ph
