@@ -27,7 +27,7 @@ export const addUser = async(req, res)=>{
         
 
     } catch (error){
-        res.status(501).json({message: error.message})
+        console.log(error)
     }
 };
 

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { addUser } from '../servicios/authService';
 import LoginForm from './loginform'; 
 
-const Login = () => {
+const Logindos = () => {
   const { handleSubmit, register } = useForm();
 
   const onSubmit = async (data) => {
@@ -22,9 +22,9 @@ const Login = () => {
         <div className="signup">
           <form>
             <label htmlFor="chk" aria-hidden="true">Registrarse</label>
-            <input type="text" name="txt" placeholder="Nombre de usuario" {...register("username", { required: true })} />
-            <input type="text" name="email" placeholder="Correo electrónico" {...register("email", { required: true })} />
-            <input type="text" name="pswd" placeholder="Contraseña" {...register("password", { required: true })} />
+            <input type="text"  placeholder="Nombre de usuario" {...register("username", { required: true })} />
+            <input type="text" placeholder="Correo electrónico" {...register("email", { required: true })} />
+            <input type="text" placeholder="Contraseña" {...register("password", { required: true })} />
             <button type="button" onClick={handleSubmit(onSubmit)}>Registrarse</button> 
           </form>
         </div>
@@ -36,4 +36,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Logindos;

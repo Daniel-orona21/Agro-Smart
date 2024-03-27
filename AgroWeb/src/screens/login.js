@@ -1,31 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/login.css';
-import swal from 'sweetalert'
+import swal from 'sweetalert';
+import { addUser } from '../servicios/authService';
+import { useForm } from 'react-hook-form';
+import LoginForm from './loginform'; 
 
 const Login = () => {
+  const { handleSubmit, register, formState: { errors }, getValues } = useForm();
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [confirmarContraseña, setConfirmarContraseña] = useState('');
   const [botonHabilitado, setBotonHabilitado] = useState(false);
-  const [errores, setErrores] = useState({
-    nombre: false,
-    email: false,
-    contraseña: false,
-    confirmarContraseña: false
-  });
-
-  const registroExitoso = () => {
-    swal({
-      title: "¡Registro Exitoso!",
-      text: "Ahora puedes ingresar con tu nueva cuenta",
-      icon: "success",
-      buttons: false,
-      timer: 2000
-    });
-      
-  };
 
   useEffect(() => {
     setBotonHabilitado(
@@ -41,28 +28,21 @@ const Login = () => {
     return regex.test(correo);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); 
-    registroExitoso();
-    // logica para enviar los datos del formulario
+  const registroExitoso = () => {
+    swal({
+      title: "¡Registro Exitoso!",
+      text: "Ahora puedes ingresar con tu nueva cuenta",
+      icon: "success",
+      buttons: false,
+      timer: 2000
+    });
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    if (name === 'txt') {
-      setNombre(value);
-      setErrores({ ...errores, nombre: value === '' });
-    } else if (name === 'email') {
-      setEmail(value);
-      setErrores({ ...errores, email: !validarEmail(value) });
-    } else if (name === 'pswd') {
-      setContraseña(value);
-      setErrores({ ...errores, contraseña: value === '' });
-    } else if (name === 'confirmarPswd') {
-      setConfirmarContraseña(value);
-      setErrores({ ...errores, confirmarContraseña: value !== contraseña });
-    }
+  const onSubmit = async (data) => {
+    console.log(data);
+    const res = await addUser(data);
+    console.log(res);
+    registroExitoso();
   };
 
   return (
@@ -71,56 +51,55 @@ const Login = () => {
       <div className="caja">
         <input type="checkbox" id="chk" aria-hidden="true" />
         <div className="signup">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="chk" aria-hidden="true">Registrarse</label>
             <input
               type="text"
               name="txt"
+              {...register("username", { required: true })}
               value={nombre}
-              onChange={handleChange}
+              onChange={(e) => setNombre(e.target.value)}
               placeholder="Nombre"
-              className={errores.nombre ? 'error' : ''}
+              className={errors.username ? 'error' : ''}
               required
             />
             <input
               type="email"
               name="email"
+              {...register("email", { required: true })}
               value={email}
-              onChange={handleChange}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Correo electrónico"
-              className={errores.email ? 'error' : ''}
+              className={errors.email ? 'error' : ''}
               required
             />
             <input
               type="password"
               name="pswd"
+              {...register("password", { required: true })}
               value={contraseña}
-              onChange={handleChange}
+              onChange={(e) => setContraseña(e.target.value)}
               placeholder="Contraseña"
-              className={errores.contraseña ? 'error' : ''}
+              className={errors.password ? 'error' : ''}
               required
             />
             <input
               type="password"
               name="confirmarPswd"
+              {...register("confirmPassword", { 
+                required: true,
+                validate: value => value === getValues("password") || "Las contraseñas no coinciden"
+              })}
               value={confirmarContraseña}
-              onChange={handleChange}
+              onChange={(e) => setConfirmarContraseña(e.target.value)}
               placeholder="Confirmar contraseña"
-              className={errores.confirmarContraseña ? 'error' : ''}
+              className={errors.confirmPassword ? 'error' : ''}
               required
             />
             <button className='button2' type="submit" aria-hidden="true" disabled={!botonHabilitado}>Registrarse</button>
           </form>
         </div>
-
-        <div className="login">
-          <form>
-            <label htmlFor="chk">Iniciar Sesión</label>
-            <input type="email" name="email" placeholder="Correo electrónico" required="" />
-            <input type="password" name="pswd" placeholder="Contraseña" required="" />
-            <Link to="/home-screen" className='button1'>Iniciar Sesión</Link>
-          </form>
-        </div>  
+        <LoginForm/>
       </div>
     </div>
   );

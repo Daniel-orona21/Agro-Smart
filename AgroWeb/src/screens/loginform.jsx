@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { loginUser } from '../servicios/authService';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import '../css/login.css';
 
 const LoginForm = () => {
   const { handleSubmit, register } = useForm();
@@ -23,7 +24,7 @@ const LoginForm = () => {
         <label htmlFor="chk" aria-hidden="true">Iniciar Sesión</label>
         <input type="text" name="email" placeholder="Correo electrónico" {...register("email", { required: true })} />
         <input type="text" name="password" placeholder="Contraseña" {...register("password", { required: true })} />
-        <button type="button" onClick={handleSubmit(onSubmitlogin)}>Iniciar sesión</button>
+        <button type="button" className='button2' onClick={handleSubmit(onSubmitlogin)}>Iniciar sesión</button>
       </form>
     </div>
   );
