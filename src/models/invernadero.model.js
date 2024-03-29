@@ -25,6 +25,13 @@ const invernaderoSchema = new mongoose.Schema({
     status:{
         type:Boolean,
         require: true
+    },
+    fechaAlta:{
+        type:Date,
+        required: true
+    },
+    fechaBaja:{
+        type:Date
     }
 
 })

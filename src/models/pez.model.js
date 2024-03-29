@@ -6,6 +6,10 @@ const pezSchema = new mongoose.Schema({
         require: true,
         trim:true
     },
+    usuario:{
+        type: String,
+        require: true
+    },
     tipo:{
         type: String,
         require: true,

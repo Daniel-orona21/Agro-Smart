@@ -2,22 +2,25 @@ import Invernadero from '../models/invernadero.model.js';
 // let existProd = true
 const fechaActual = new Date();
 
-export const createInvernadero=async(req,res)=>{
+export const createInvernadero=async(req,res,user,Pez)=>{
     const {
         name,
         pez,
         cultivo,
         capacidad,
-        usuario
+        usuario,
+        fechaAlta
     }=req.body;
     try{
         const newInvernadero= new Invernadero({
             name,
-            pez,
+            pez:Pez,
             cultivo,
             capacidad,
-            usuario,
-            status:true
+            usuario:user,
+            status:true,
+            fechaAlta:fechaActual
+
         });
         const saveInvernadero = await newInvernadero.save()
         const l= await Invernadero.find();
