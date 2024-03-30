@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { addpez } from '../servicios/authService';
+import { useLocation } from 'react-router-dom';
   // import { useHistory } from 'react-router-dom';
 
 function PantallaPez() {
