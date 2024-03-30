@@ -12,7 +12,7 @@ function PantallaPez() {
   const username = queryParams.get('username');
 
   const onSubmit = async (data) => {
-    console.log(data);
+    console.log(data +"usuario: " + username);
     const res = await addpez(data);
     console.log(res)
   };
@@ -21,10 +21,12 @@ function PantallaPez() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>Elegir tipo de pez:</label>
-        <select {...register("pez")}>
+        <select {...register("tipo")}>
           <option value="trucha">Trucha</option>
           <option value="tilapia">Tilapia</option>
         </select>
+        <input type="number"  placeholder="cantidad" {...register("cantidad", { required: true })} />
+        
       </div>
       <button type="submit">Siguiente</button>
     </form>
