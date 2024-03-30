@@ -1,14 +1,19 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { addpez } from '../servicios/authService';
   // import { useHistory } from 'react-router-dom';
 
 function PantallaPez() {
   const { register, handleSubmit } = useForm();
-  // const history = useHistory();
 
-  const onSubmit = (data) => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const username = queryParams.get('username');
+
+  const onSubmit = async (data) => {
     console.log(data);
-    // history.push('/cultivo');
+    const res = await addpez(data);
+    console.log(res)
   };
 
   return (

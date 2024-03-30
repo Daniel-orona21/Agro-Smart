@@ -46,7 +46,7 @@ const Login = () => {
     const res = await addUser(data);
     console.log(res);
     registroExitoso();
-    navigate(`/Seleccion-cultivo?username=${data.username}`);
+    navigate(`/Seleccion-pez?username=${data.username}`);
   };
 
   return (
