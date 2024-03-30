@@ -5,8 +5,11 @@ import swal from 'sweetalert';
 import { addUser } from '../servicios/authService';
 import { useForm } from 'react-hook-form';
 import LoginForm from './loginform'; 
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 const Login = () => {
+  const navigate = useNavigate(); // Obtiene la función de navegación
+
   const { handleSubmit, register, formState: { errors }, getValues } = useForm();
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
@@ -43,6 +46,7 @@ const Login = () => {
     const res = await addUser(data);
     console.log(res);
     registroExitoso();
+    navigate(`/Seleccion-cultivo?username=${data.username}`);
   };
 
   return (

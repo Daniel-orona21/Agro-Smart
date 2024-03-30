@@ -1,14 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+  // import { useHistory } from 'react-router-dom';
 
 function PantallaPez() {
   const { register, handleSubmit } = useForm();
-  const history = useHistory();
+  // const history = useHistory();
 
   const onSubmit = (data) => {
     console.log(data);
-    history.push('/cultivo');
+    // history.push('/cultivo');
   };
 
   return (
