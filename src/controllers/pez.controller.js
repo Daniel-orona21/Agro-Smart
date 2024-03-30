@@ -1,4 +1,4 @@
-import Pez from '../models/pez.model.js';
+import Pez2 from '../models/pez.model.js';
 // let existProd = true
 const fechaActual = new Date();
 
@@ -9,14 +9,14 @@ export const createPez=async(req,res)=>{
             usuario
         }=req.body
         try{
-        const newPez= new Pez({
+        const newPez= new Pez2({
             tipo,
             cantidad,
             usuario,
 
         });
         const savePez = await newPez.save()
-        const l= await Pez.find();
+        const l= await Pez2.find();
         res.send(l);
         var pezBusca = l
     

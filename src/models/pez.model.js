@@ -18,4 +18,4 @@ const pezSchema = new mongoose.Schema({
 
 })
 
-export default mongoose.model('Pez', pezSchema);
+export default mongoose.model('Pez2', pezSchema);

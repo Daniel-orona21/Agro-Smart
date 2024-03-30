@@ -46,7 +46,7 @@ const Login = () => {
     const res = await addUser(data);
     console.log(res);
     registroExitoso();
-    navigate(`/Seleccion-pez?username=${data.username}`);
+    navigate(`/Seleccion-pez?usuario=${data.usuario}`);
   };
 
   return (
@@ -60,7 +60,7 @@ const Login = () => {
             <input
               type="text"
               name="txt"
-              {...register("username", { required: true })}
+              {...register("usuario", { required: true })}
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               placeholder="Nombre"
