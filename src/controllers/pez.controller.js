@@ -6,14 +6,12 @@ export const createPez=async(req,res)=>{
     const {
         nombre,
         usuario,
-        tipo,
         cantidad
     }=req.body
     try{
         const newPez= new Pez({
             nombre,
             usuario,
-            tipo,
             cantidad,
 
         });

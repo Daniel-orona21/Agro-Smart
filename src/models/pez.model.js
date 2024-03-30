@@ -1,11 +1,6 @@
 import mongoose from "mongoose";
 
 const pezSchema = new mongoose.Schema({
-    nombre: {
-        type: String,
-        require: true,
-        trim:true
-    },
     usuario:{
         type: String,
         require: true
@@ -14,7 +9,7 @@ const pezSchema = new mongoose.Schema({
         type: String,
         require: true,
         trim:true,
-        unique: true
+  
         
     },
     cantidad:{
