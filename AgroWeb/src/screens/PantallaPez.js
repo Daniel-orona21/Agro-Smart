@@ -12,10 +12,13 @@ function PantallaPez() {
   const username = queryParams.get('username');
 
   const onSubmit = async (data) => {
-    console.log(data +"usuario: " + username);
-    const res = await addpez(data);
-    console.log(res)
+    // Agregar el nombre de usuario a los datos antes de enviarlos
+    const datosConUsuario = { ...data, username: username };
+    console.log(datosConUsuario);
+    const res = await addpez(datosConUsuario);
+    console.log(res);
   };
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

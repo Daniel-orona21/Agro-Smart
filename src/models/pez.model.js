@@ -8,9 +8,7 @@ const pezSchema = new mongoose.Schema({
     tipo:{
         type: String,
         require: true,
-        trim:true,
-  
-        
+
     },
     cantidad:{
         type: String,
