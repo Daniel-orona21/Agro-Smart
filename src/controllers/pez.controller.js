@@ -2,7 +2,7 @@ import Pez from '../models/pez.model.js';
 // let existProd = true
 const fechaActual = new Date();
 
-export const createPez=async(req,res,user)=>{
+export const createPez=async(req,res)=>{
     const {
         nombre,
         usuario,
@@ -12,7 +12,7 @@ export const createPez=async(req,res,user)=>{
     try{
         const newPez= new Pez({
             nombre,
-            usuario:user,
+            usuario,
             tipo,
             cantidad,
 
