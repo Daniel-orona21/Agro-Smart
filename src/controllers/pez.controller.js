@@ -4,52 +4,41 @@ const fechaActual = new Date();
 
 export const createPez=async(req,res)=>{
     const {
-        nombre,
-        usuario,
-        cantidad
-    }=req.body
-    try{
-        const newPez= new Pez({
-            nombre,
-            usuario,
+        tipo,
             cantidad,
+            usuario
+        }=req.body
+        try{
+        const newPez= new Pez({
+            tipo,
+            cantidad,
+            usuario,
 
         });
         const savePez = await newPez.save()
         const l= await Pez.find();
         res.send(l);
+        var pezBusca = l
     
     } catch (error){
         console.log(error)
     }
-    
-    res.send("Pez registrado");
+
+    // res.send(pezBusca);
 }
 
 export const updatePez = async (req, res) => {
-    const { username } = req.body;
+    const { usuario } = req.body;
     const {
-        invernadero,
-        phone,
-        pez,
-        temperaturaEstanque,
-        nivel,
-        ph,
-        temperaturaAmbiente,
-        humedadAmbiente,
+     cantidad,
+     tipo
     } = req.body; // Obtén los datos actualizados del cuerpo de la solicitud
     try {
       const updatedPez = await Pez.findOneAndUpdate(
-        { username: username }, 
+        { usuario: usuario }, 
         {
-            invernadero,
-            phone,
-            pez,
-            temperaturaEstanque,
-            nivel,
-            ph,
-            temperaturaAmbiente,
-            humedadAmbiente,
+            cantidad,
+            tipo
         },
         { new: true }
       );
