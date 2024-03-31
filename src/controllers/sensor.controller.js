@@ -4,7 +4,7 @@ const fechaActual = new Date();
 
 export const createSensor=async(req,res)=>{
     const {
-        username,
+        usuario,
         invernadero,
         phone,
         pez,
@@ -16,7 +16,7 @@ export const createSensor=async(req,res)=>{
     }=req.body;
     try{
         const newSensor= new Sensor({
-            username,
+            usuario,
             invernadero,
             phone,
             pez,
@@ -36,11 +36,11 @@ export const createSensor=async(req,res)=>{
         console.log(error)
     }
     
-    res.send("Sensor registrado");
+    
 }
 
 export const updateSensor = async (req, res) => {
-    const { username } = req.body;
+    const { usuario } = req.body;
     const {
         invernadero,
         phone,
@@ -53,7 +53,7 @@ export const updateSensor = async (req, res) => {
     } = req.body; // Obtén los datos actualizados del cuerpo de la solicitud
     try {
       const updatedSensor = await Sensor.findOneAndUpdate(
-        { username: username }, 
+        { usuario: usuario }, 
         {
             invernadero,
             phone,

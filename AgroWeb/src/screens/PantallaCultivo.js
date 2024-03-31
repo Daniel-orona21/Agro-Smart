@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
-
+import { addsensor } from '../servicios/compService';
 import { addinvernadero } from '../servicios/compService';
 function PantallaCultivo() {
   const navigate = useNavigate(); // Obtiene la función de navegación
@@ -15,14 +15,19 @@ function PantallaCultivo() {
   const pez = queryParams.get('pez');
 
   const onSubmit = async (data) => {
+    const nombreInvernadero = data.name; 
     const datos={...data, usuario:usuario, pez:pez  }
     console.log(datos);
     const res = await addinvernadero(datos);
     console.log(res)
+    const datosensor ={pez:pez,usuario:usuario,invernadero:nombreInvernadero}
     navigate('/home-screen')
+    sensores(datosensor)
     // Aquí puedes hacer lo que quieras con los datos, como enviarlos al servidor, etc.
   };
-
+  const sensores = async (datosensor) =>{
+    const res= await addsensor(datosensor)
+  }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
