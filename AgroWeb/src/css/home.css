@@ -1,0 +1,319 @@
+body, #root {
+  height: 100%;
+}
+html {
+  height: 90%;
+}
+.cuerpo {
+    display: flex;
+    margin-left: 5rem;
+    font-family: 'Jost', sans-serif;
+    height: 110%;
+    align-items: center;
+  }
+  .header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    width: 90px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease-in-out;
+    align-items: center;
+    justify-content: center;
+  }
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px; /* Ancho del borde */
+    background-color: #ccc; /* Color del borde */
+    margin-top: 25%; /* Ajusta la altura del borde según tus preferencias */
+    margin-bottom: 25%; /* Ajusta la altura del borde según tus preferencias */
+  }
+
+  .header:hover {
+    width: 150px; /* Ajusta el ancho deseado al pasar el mouse */
+}
+
+.icon {
+  font-size: 24px; /* Ajusta el tamaño según tus necesidades */
+  color: grey;    /* Color por defecto */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
+  padding: 1rem;
+}
+
+.selected {
+  color: black;    /* Color cuando el ícono está seleccionado */
+}
+
+.iconos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logoPrincipal {
+  width: 3rem;
+  height: 3rem;
+  margin-top: 20px;
+  transition: transform 0.4s ease;
+}
+
+.logoPrincipal:hover{
+  transform: rotate(360deg);
+  cursor: pointer;
+}
+
+.perfil {
+margin-bottom: 10px;
+}
+
+.subheader {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.contenido {
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  background-color: white;
+}
+
+@media only screen and (max-width: 600px) {
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  transition: height 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #cfcfcf; /* Ajustamos el borde inferior */
+  box-sizing: border-box; /* Ajustamos el modelo de caja para que el borde se incluya en el ancho del encabezado */
+}
+
+.header:hover {
+  height: 110px;
+  width: 100%;
+}
+.subheader {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.iconos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+}
+.perfil {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.logoPrincipal {
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-left: 10px;
+  margin-top: -1px;
+}
+.cuerpo {
+  display: flex;
+  margin-left: 0rem;
+  margin-top: 33rem; /* Ajusta el margen superior segÃºn tus necesidades */
+  align-items: center;
+  font-family: 'Jost', sans-serif;
+  background-color: rgb(255, 255, 255);
+  align-content: contain;
+}
+}
+
+/* Media query para pantallas medianas */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  transition: height 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #cfcfcf; /* Ajustamos el borde inferior */
+  box-sizing: border-box; /* Ajustamos el modelo de caja para que el borde se incluya en el ancho del encabezado */
+}
+
+.header:hover {
+  height: 110px;
+  width: 100%;
+}
+.subheader {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.iconos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.perfil {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.logoPrincipal {
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-left: 10px;
+  margin-top: -1px;
+}
+.cuerpo {
+  display: flex;
+  margin-left: 0rem;
+  margin-top: 33rem; 
+  font-family: 'Jost', sans-serif;
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+}
+}
+@media only screen and (max-width: 450px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    transition: height 0.3s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #cfcfcf; /* Ajustamos el borde inferior */
+    box-sizing: border-box; /* Ajustamos el modelo de caja para que el borde se incluya en el ancho del encabezado */
+  }
+
+  .header:hover {
+    height: 110px;
+    width: 100%;
+  }
+  .subheader {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .iconos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+  }
+  .perfil {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  .logoPrincipal {
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-left: 10px;
+    margin-top: -1px;
+  }
+  .cuerpo {
+    display: flex;
+    margin-left: 0rem;
+    margin-top: 33rem; /* Ajusta el margen superior segÃºn tus necesidades */
+    align-items: center;
+    font-family: 'Jost', sans-serif;
+    background-color: rgb(255, 255, 255);
+    align-content: contain;
+  }
+  .contenido {
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    background-color: white;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    transition: height 0.3s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #cfcfcf; /* Ajustamos el borde inferior */
+    box-sizing: border-box; /* Ajustamos el modelo de caja para que el borde se incluya en el ancho del encabezado */
+  }
+
+  .header:hover {
+    height: 110px;
+    width: 100%;
+  }
+  .subheader {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  
+  .iconos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+  }
+  .perfil {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  .logoPrincipal {
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-left: 10px;
+    margin-top: -1px;
+  }
+  .cuerpo {
+    display: flex;
+    margin-left: 0rem;
+    margin-top: 35rem; /* Ajusta el margen superior segÃºn tus necesidades */
+    align-items: center;
+    font-family: 'Jost', sans-serif;
+    background-color: rgb(255, 255, 255);
+    align-content: contain;
+  }
+}

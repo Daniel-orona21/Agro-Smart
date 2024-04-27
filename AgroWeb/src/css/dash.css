@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+.titulo2 {
+    font-size: 40px;
+    font-family: "Josefin Sans", sans-serif;
+    color: black;
+}
+
+.titulo4 {
+    font-size: 40px;
+    font-family: "Josefin Sans", sans-serif;
+    color: black;
+}
+.titulopantallas {
+    font-size: 40px;
+    font-family: "Josefin Sans", sans-serif;
+    color: black;
+    margin-bottom: -.4rem;
+}
+
+.titulo5 {
+    font-size: 40px;
+    font-family: "Josefin Sans", sans-serif;
+    color: black;
+    margin-top: 1rem;
+}
+
+.datosDash {
+    flex-direction: row;
+    display: flex;
+
+    width: 100%;
+}
+
+.recomendaciones {
+    background: linear-gradient(rgb(0, 0, 0), rgb(74, 74, 74));
+    width: 20rem;
+    height: 36rem;
+    border-radius: 2rem;
+    overflow-y: auto;
+    color: white;
+    font-size: 1rem;
+    margin-top: 0rem;
+    margin-left: 1rem;
+}
+
+.recomendaciones::-webkit-scrollbar {
+    width: 0; 
+}
+
+.tituloR {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.tituloR2 {
+    color: white;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.datos {
+    width: 55rem;
+    height: auto;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    background-color: rgb(241, 241, 241);
+    width: 16rem;
+    height: 16rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    flex-direction: column;
+}
+.box2 {
+    background-color: rgb(241, 241, 241);
+    width: 16rem;
+    height: 16rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    flex-direction: column;
+    margin-top: -7rem;
+    margin-bottom: -10rem;
+    position:inherit;
+}
+
+
+.boxTitulo1 {
+    font-size: 22px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: rgb(33, 33, 33);
+}
+
+.boxTitulo2 {
+    font-size: 80px;
+    text-align: center;
+    margin-top: 13px;
+    color: rgb(119, 119, 119);
+}
+.boxTitulo3 {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 28px;
+    color: rgb(118, 118, 118);
+    font-weight: bold;
+}
+
+.semaforo {
+    height: 29px;
+    width: 80px;
+    margin-top: -2.5rem;
+}
+
+.sistema {
+    width: 7.5rem;
+    height: 7.5rem;
+}
+
+.contenidoR {
+    color: white;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 2rem;
+}
+
+.contenidoR ul {
+    list-style-type: disc; 
+    padding-left: 2rem; 
+    margin-top: 1.5rem;
+}
+.dashboard {
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    margin-top: -2.7rem;
+}
+
+.cuerpoPH {
+    width: 100%; 
+    margin-left: 5rem;
+}
+
+.contenedorph {
+    flex-direction: row;
+    display: flex;
+}
+
+.promedio {
+    width: 100%;
+}
+.graficas {
+    width: 65%;
+}
+.grafica1 {
+    width: 100%
+}
+.grafica2 {
+    width: 55%;
+    position: absolute;
+    height: 30%;
+}
+.filtro {
+
+    margin-bottom: 30px;
+
+}
+.cosas{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 47rem;
+}
+
+  
+  .buttonf {
+    margin: 5px; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    color: white;
+  }
+
+  .MuiPaper-root.MuiAccordion-root {
+    background-color: rgb(241, 241, 241);
+    overflow: hidden;
+  }
+
+
+@media only screen and (max-width: 600px) {
+    .titulo2 {
+        font-size: 40px;
+        font-family: "Josefin Sans", sans-serif;
+        color: black;
+        text-align: center;
+    }
+    .datos {
+        width: 40rem;
+        height: auto;
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .dashboard {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+    }
+    .datosDash {
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+    .recomendaciones {
+        background: linear-gradient(rgb(0, 0, 0), rgb(74, 74, 74));
+        width: 35rem;
+        height: 27rem;
+        border-radius: 2rem;
+        overflow-y: auto;
+        color: white;
+        font-size: 1rem;
+        margin-top: 3rem;
+        margin-left: 0rem;  
+        margin-bottom: 5rem;
+    }
+    .contenedorph {
+        flex-direction: column;
+        display: flex;
+    }
+    .cosas{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 47rem;
+        height: 20rem;
+        margin-top: 15rem;
+    }
+
+    .cuerpoPH{
+        margin-top: -60%;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .titulo2 {
+        font-size: 40px;
+        font-family: "Josefin Sans", sans-serif;
+        color: black;
+        text-align: center;
+    }
+    .datos {
+        width: 40rem;
+        height: auto;
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .dashboard {
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        display: flex;
+        margin-left: 12.7rem;
+
+    }
+    .recomendaciones {
+        background: linear-gradient(rgb(0, 0, 0), rgb(74, 74, 74));
+        width: 35rem;
+        height: 27rem;
+        border-radius: 2rem;
+        overflow-y: auto;
+        color: rgb(255, 255, 255);
+        font-size: 1rem;
+        margin-top: 3rem;
+        margin-left: 0rem;  
+        margin-bottom: 5rem;
+    }
+    .contenedorph {
+        flex-direction: column;
+        display: flex;
+    }
+    .cosas{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 47rem;
+        height: 20rem;
+        margin-top: 15rem;
+    }
+
+    .cuerpoPH{
+        margin-top: -60%;
+    }
+    
+}
+
+/* Media query para pantallas medianas */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+	.titulo2 {
+        font-size: 40px;
+        font-family: "Josefin Sans", sans-serif;
+        color: black;
+        text-align: center;
+    }
+    .datos {
+        width: 40rem;
+        height: auto;
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .dashboard {
+        flex-direction: column;
+        align-items: center;
+        display: flex;;
+    }
+    .datosDash {
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+    .recomendaciones {
+        background: linear-gradient(rgb(0, 0, 0), rgb(74, 74, 74));
+        width: 35rem;
+        height: 27rem;
+        border-radius: 2rem;
+        overflow-y: auto;
+        color: white;
+        font-size: 1rem;
+        margin-top: 3rem;
+        margin-left: 0rem;  
+        margin-bottom: 5rem;
+    }
+    .contenedorph {
+        flex-direction: column;
+        display: flex;
+    }
+    .cosas{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 47rem;
+        height: 20rem;
+        margin-top: 15rem;
+    }
+
+    .cuerpoPH{
+        margin-top: -60%;
+    }
+    
+
+	
+}
+
+
+  
