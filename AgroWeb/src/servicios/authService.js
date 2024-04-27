@@ -1,6 +1,6 @@
 import axios from 'axios';
 //test
-const URL_API="https://agroback.onrender.com"
+const URL_API="https://agroback.onrender.com/api"
 
 export function addUser(User){
     return axios.post(URL_API+"/register", User,{
