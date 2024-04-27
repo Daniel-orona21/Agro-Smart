@@ -1,4 +1,4 @@
-import User2 from '../models/user.model.js'
+import User from '../models/user.model.js'
 import bcrypt from 'bcryptjs'
 import { createAccessToken } from '../libs/jwt.js'; //Esta es la funcion para crear el token 
 
@@ -12,7 +12,7 @@ export const addUser = async(req, res)=>{
 
         const passwordHash = await bcrypt.hash(password, 10)
 
-        const newUser = new User2({
+        const newUser = new User({
         password: passwordHash, 
         usuario,
         email
@@ -36,7 +36,7 @@ export const login = async(req, res) => {
     const { password, email } = req.body;
     try {
         // Buscar el usuario en la base de datos por su correo electrónico
-        const userFound = await User2.findOne({ email });
+        const userFound = await User.findOne({ email });
         
         // Verificar si el usuario existe
         if (!userFound) {
@@ -71,7 +71,7 @@ export const logout = (req,res)=>{
 
 export const profile = async (req,res)=>{
   
-    const userFound = await User2.findById(req.user.id)
+    const userFound = await User.findById(req.user.id)
 
     if (!userFound) return res.status(400).json({message: "User not found"});
     // console.log(userFound)
