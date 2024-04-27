@@ -8,6 +8,7 @@ import cors from 'cors'
 const app = express()
 
 app.use(cors({origin:"https://agro-8w1r.onrender.com",
+// app.use(cors({origin:"http://localhost:5173",
 credentials: true // Habilitar el envío de credenciales
 }))
 
