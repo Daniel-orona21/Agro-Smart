@@ -32,7 +32,7 @@ export function addsensor(User){
 
 
 export function updatesensor(User){
-    return axios.put(URL_API+"/Sensor", User)
+    return axios.put("/Sensor", User)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
             throw error; // Lanzar el error para que pueda ser manejado en otro lugar si es necesario
@@ -41,7 +41,7 @@ export function updatesensor(User){
 
 
 export function updatesensorfake(User){
-    return axios.put(URL_API+"/Fake", User)
+    return axios.put("/Fake", User)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
             throw error; // Lanzar el error para que pueda ser manejado en otro lugar si es necesario
@@ -49,7 +49,7 @@ export function updatesensorfake(User){
 }
 
 export const readSensor = (usuario) => {
-    return axios.get(`${URL_API}/Sensor/${usuario}`)
+    return axios.get(`/Sensor/${usuario}`)
         .then(response => response.data)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
@@ -58,7 +58,7 @@ export const readSensor = (usuario) => {
 }
 
 export const readph = (usuario) => {
-    return axios.get(`${URL_API}/Ph/${usuario}`)
+    return axios.get(`/Ph/${usuario}`)
         .then(response => response.data)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
@@ -67,7 +67,7 @@ export const readph = (usuario) => {
 }
 
 export const readnivel = (usuario) => {
-    return axios.get(`${URL_API}/Nivel/${usuario}`)
+    return axios.get(`/Nivel/${usuario}`)
         .then(response => response.data)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
@@ -76,7 +76,7 @@ export const readnivel = (usuario) => {
 }
 
 export const readhumedad = (usuario) => {
-    return axios.get(`${URL_API}/Humedad/${usuario}`)
+    return axios.get(`/Humedad/${usuario}`)
         .then(response => response.data)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
@@ -85,7 +85,7 @@ export const readhumedad = (usuario) => {
 }
 
 export const readtemperatura = (usuario) => {
-    return axios.get(`${URL_API}/Temperatura/${usuario}`)
+    return axios.get(`/Temperatura/${usuario}`)
         .then(response => response.data)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
@@ -94,7 +94,7 @@ export const readtemperatura = (usuario) => {
 }
 
 export const getFirstDataFromAllCharts = (usuario) => {
-    return axios.get(`${URL_API}/Charts/FirstData/${usuario}`)
+    return axios.get(`/Charts/FirstData/${usuario}`)
         .then(response => response.data)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
