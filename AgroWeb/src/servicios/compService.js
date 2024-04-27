@@ -1,6 +1,6 @@
 import axios from 'axios';
 //test
-const URL_API="http://localhost:3000/api"
+const URL_API="https://agroback.onrender.com"
 
 
 export function addpez(User){
