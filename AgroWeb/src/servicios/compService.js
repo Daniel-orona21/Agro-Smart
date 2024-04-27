@@ -1,12 +1,11 @@
 import axios from './axios';
 //test
-const URL_API="https://agroback.onrender.com/api"
-// const URL_API="http://localhost:3000/api"
+
 
 
 
 export function addpez(User){
-    return axios.post(URL_API+"/Pez", User)
+    return axios.post("/Pez", User)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
             throw error; // Lanzar el error para que pueda ser manejado en otro lugar si es necesario
@@ -14,7 +13,7 @@ export function addpez(User){
 }
 
 export function addinvernadero(User){
-    return axios.post(URL_API+"/Invernadero", User)
+    return axios.post("/Invernadero", User)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
             throw error; // Lanzar el error para que pueda ser manejado en otro lugar si es necesario
@@ -22,7 +21,7 @@ export function addinvernadero(User){
 }
 
 export function addsensor(User){
-    return axios.post(URL_API+"/Sensor", User)
+    return axios.post("/Sensor", User)
         .catch(error => {
             console.error('Error al enviar la solicitud:', error);
             throw error; // Lanzar el error para que pueda ser manejado en otro lugar si es necesario

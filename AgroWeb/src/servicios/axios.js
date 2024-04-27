@@ -1,5 +1,8 @@
 import axios from "axios";
-import { API_URL } from "../config";
+API_URL = "https://agroback.onrender.com/api"
+// API_URL="http://localhost:3000/api"
+
+
 
 const instance = axios.create({
   baseURL: API_URL,

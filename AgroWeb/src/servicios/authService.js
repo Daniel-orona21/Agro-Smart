@@ -1,10 +1,9 @@
 import axios from './axios';
 //test
-const URL_API="https://agroback.onrender.com/api"
-// const URL_API="http://localhost:3000/api"
+
 
 export function addUser(User){
-    return axios.post(URL_API+"/register", User,{
+    return axios.post("/register", User,{
       withCredentials: true,
     })
         .catch(error => {
@@ -14,7 +13,7 @@ export function addUser(User){
 }
 
 export function loginUser(User){
-    return axios.post(URL_API+"/login", User,  {
+    return axios.post("/login", User,  {
       withCredentials: true,
     })
         .catch(error => {
@@ -24,7 +23,7 @@ export function loginUser(User){
 }
 
 export function profile (){
-  return axios.get(URL_API+"/profile",  {
+  return axios.get("/profile",  {
     withCredentials: true,
   })
       .catch(error => {
