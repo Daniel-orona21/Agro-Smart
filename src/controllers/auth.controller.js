@@ -19,7 +19,7 @@ export const addUser = async(req, res)=>{
         });
         const saveUser = await newUser.save()
         
-        const token = await createAccessToken({id: saveUser._id, username: saveUser.username})
+        const token = await createAccessToken({id: saveUser._id, usuario: saveUser.usuario})
         res.cookie('token', token)
         
         res.json(token)
@@ -58,7 +58,7 @@ export const login = async(req, res) => {
         res.cookie('token', token, { maxAge: 900000 });
         
         // Devolver el token y el nombre de usuario en la respuesta JSON
-        res.json({ token, username: userFound.username });
+        res.json({ token, usuario: userFound.usuario });
     } catch (error) {
         res.status(501).json({ message: error.message });
     }
