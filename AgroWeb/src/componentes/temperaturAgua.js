@@ -84,7 +84,7 @@ export const TemperaturaAgua = ({ usuario, temperatura }) => {
           <div className='box2'>
           <p className='boxTitulo1'>Temperatura en Agua</p>
           <p className='boxTitulo2'>{temperatura}°C</p>
-          <img src={aguaTemperatura()} alt="semaforo" className="semaforo" />
+          <img src={aguaTemperatura(temperatura)} alt="semaforo" className="semaforo" />
           </div>
           <Accordion defaultExpanded={false}>
             <AccordionSummary
