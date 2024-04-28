@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { readhumedad } from '../servicios/compService';
 import { humedadS } from './Dashborard';
 import HumedadChart from './graficas/humedadChart';
-import { combinar, filtrarFechas} from './operaciones'
+import { combinar, filtrarFechas } from './operaciones'
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 
 import '../css/home.css';
 
-export const  HumedadScreen = ({humedadConstante, usuario}) => {
+export const HumedadScreen = ({ humedadConstante, usuario }) => {
 
   const [datos, setDatos] = useState([]);
   const [data, setData] = useState([]);
@@ -21,9 +21,9 @@ export const  HumedadScreen = ({humedadConstante, usuario}) => {
   const [fechaInicio, setFechaInicio] = useState('');
   const [fechaFin, setFechaFin] = useState('');
   const [estafiltrado, setEstaFiltrado] = useState(false)
-  
+
   const [datosFiltrados, setDatosFiltrados] = useState([]);
-//todo esto simplemente es como se manejan las variables en react
+  //todo esto simplemente es como se manejan las variables en react
 
   useEffect(() => {
     const fetchHumedad = async (usuario) => {
@@ -63,14 +63,14 @@ export const  HumedadScreen = ({humedadConstante, usuario}) => {
   const handleFiltrarClick = () => {
     console.log("Filtrar datos con fecha de inicio:", fechaInicio, "y fecha de fin:", fechaFin);
     setDatosFiltrados(filtrarFechas(datos, fechaInicio, fechaFin));
-    console.log(datosFiltrados  )
+    console.log(datosFiltrados)
     setEstaFiltrado(true);//esto es para que sepa si traer los datos filtrados o no 
     //se filtran los datos cuando se presiona filtrar
   };
   useEffect(() => {
     console.log("Datos filtrados:", datosFiltrados);
   }, [datosFiltrados]);//esto simplemente hay que ponerlo para que jale el filtro
-  
+
   //la explicacion larga es que como todo son funciones asincronas
   //js puede pasar al siguiente paso sin que las funciones mas lentas acaben bien
   //en vez de usar promesas que es mas tardado hacemos un log para que js tenga que usar
@@ -82,26 +82,26 @@ export const  HumedadScreen = ({humedadConstante, usuario}) => {
   };
 
   return (
-    
+
     <div className='cuerpoPH'>
       <p className='titulo4'>HUMEDAD</p>
       <div className='contenedorph'>
         <div className='graficas'>
-        <HumedadChart //se mandan los datos al componente
-        datos={datos}
-        data={data}
-        datosFiltrados={datosFiltrados}
-        estafiltrado={estafiltrado}
-        datosNoFiltrados={datos}//esto es para que diferencie entre filtrados o no
-        />
-      </div>
-      <div className='cosas'>
-      <div className='box'>
-               <p className='boxTitulo1'>% Actual:</p>
-               <p className='boxTitulo2'>{humedadConstante}</p>
-            <img src={humedadS(humedadConstante)} alt="semaforo" className="semaforo" />
+          <HumedadChart //se mandan los datos al componente
+            datos={datos}
+            data={data}
+            datosFiltrados={datosFiltrados}
+            estafiltrado={estafiltrado}
+            datosNoFiltrados={datos}//esto es para que diferencie entre filtrados o no
+          />
         </div>
-        <Accordion defaultExpanded={false}>
+        <div className='cosas'>
+          <div className='box'>
+            <p className='boxTitulo1'>% Actual:</p>
+            <p className='boxTitulo2'>{humedadConstante}</p>
+            <img src={humedadS(humedadConstante)} alt="semaforo" className="semaforo" />
+          </div>
+          <Accordion defaultExpanded={false}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1c-content"
@@ -118,7 +118,7 @@ export const  HumedadScreen = ({humedadConstante, usuario}) => {
               </div>
             </AccordionDetails>
           </Accordion>
-          </div>
+        </div>
       </div>
     </div>
   );

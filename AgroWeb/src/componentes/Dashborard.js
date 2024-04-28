@@ -34,7 +34,7 @@ const aguaTemperatura = (temperatura) => {
 const ambiente = (temperaturaAmbiente) => {
   if (temperaturaAmbiente >= 15 && temperaturaAmbiente <= 35) {
     return semaforo1;
-  } else if ((temperaturaAmbiente >= 5 && temperaturaAmbiente <= 14) || (temperaturaAmbiente > 35 && temperaturaAmbiente <= 40)) {
+  } else if ((temperaturaAmbiente >= 5 && temperaturaAmbiente <= 14) || (temperaturaAmbiente > 36 && temperaturaAmbiente <= 40)) {
     return semaforo2;
   } else {
     return semaforo3;
