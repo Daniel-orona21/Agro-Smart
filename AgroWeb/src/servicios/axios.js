@@ -1,5 +1,5 @@
 import axios from "axios";
-const APsI_URL = "https://agroback.onrender.com/api"
+const API_URL = "https://agroback.onrender.com/api"
 // const  API_URL="http://localhost:3000/api"
 
 
