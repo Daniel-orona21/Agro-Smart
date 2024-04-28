@@ -25,9 +25,8 @@ const HomeScreen = () => {
   const [estado, setEstado] = useState('');
   const getTokenFromCookie = () => {
 
-    const cookies = document.cookie.split('; ');
-    const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
-    if (tokenCookie) {
+    const cookies = Cookies.get();    const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
+    if (cookies) {
       const token = tokenCookie.split('=')[1];
       //localStorage.setItem('token',token) // <- token en local
       return token;
@@ -40,8 +39,10 @@ const HomeScreen = () => {
 
   const getProfile = async () => {
     try {
-      const token = getTokenFromCookie();
-      if (!token) {
+      // const token = getTokenFromCookie();
+      const cookies = Cookies.get();    const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
+
+      if (!cookies) {
         console.error('No se encontró el token en la cookie');
         //window.location.href = "/";
         return;
