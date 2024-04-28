@@ -11,6 +11,7 @@ import { Nivel } from '../componentes/nivelScreen';
 import { HumedadScreen } from '../componentes/HumedadScreen';
 import { profile } from '../servicios/authService';
 import { getFirstDataFromAllCharts } from '../servicios/compService';
+import Cookies from "js-cookie";
 
 const HomeScreen = () => {
   const [selectedIcon, setSelectedIcon] = useState('home');
@@ -23,16 +24,16 @@ const HomeScreen = () => {
   const [nPH, setNPH] = useState('');
   const [response, setResponse] = useState('');
   const [estado, setEstado] = useState('');
-  const getTokenFromCookie = () => {
+  // const getTokenFromCookie = () => {
 
-    const cookies = Cookies.get();    const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
-    if (cookies) {
-      const token = tokenCookie.split('=')[1];
-      //localStorage.setItem('token',token) // <- token en local
-      return token;
-    }
-    return null;
-  };
+  //   const cookies = Cookies.get();   
+  //   if (cookies) {
+  //     const token = tokenCookie.split('=')[1];
+  //     //localStorage.setItem('token',token) // <- token en local
+  //     return token;
+  //   }
+  //   return null;
+  // };
   // function sleep(ms) {
   //   return new Promise(resolve => setTimeout(resolve, ms));
   // }
@@ -40,7 +41,7 @@ const HomeScreen = () => {
   const getProfile = async () => {
     try {
       // const token = getTokenFromCookie();
-      const cookies = Cookies.get();    const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
+      const cookies = Cookies.get();   
 
       if (!cookies) {
         console.error('No se encontró el token en la cookie');
