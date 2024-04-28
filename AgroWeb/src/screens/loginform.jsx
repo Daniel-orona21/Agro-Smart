@@ -31,7 +31,7 @@ const LoginForm = () => {
       <form>
         <label htmlFor="chk" aria-hidden="true">Iniciar Sesión</label>
         <input type="text" name="email" placeholder="Correo electrónico" {...register("email", { required: true })} />
-        <input type="text" name="password" placeholder="Contraseña" {...register("password", { required: true })} />
+        <input type="password" name="password" placeholder="Contraseña" {...register("password", { required: true })} />
         <button type="button" className='button3' onClick={handleSubmit(onSubmitlogin)}>Iniciar sesión</button>
       </form>
     </div>

@@ -82,7 +82,7 @@ export const PhScreen = ({ nPH, usuario }) => {
         <div className='cosas'>
           <div className='box2'>
             <p className='boxTitulo1'>ph Actual:</p>
-            <p className='boxTitulo2'>{nPH}</p>
+            <p className='boxTitulo2'>{Math.round(nPH)}</p>
             <img src={semaforoPH(nPH)} alt="semaforo" className="semaforo" />
           </div>
           <Accordion defaultExpanded={false}>

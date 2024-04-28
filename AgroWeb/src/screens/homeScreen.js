@@ -22,7 +22,7 @@ const HomeScreen = () => {
   const [nivel, setNivel] = useState('');
   const [nPH, setNPH] = useState('');
   const [response, setResponse] = useState('');
-  const [estado, setEstado] = useState(''); 
+  const [estado, setEstado] = useState('');
   const getTokenFromCookie = () => {
 
     const cookies = document.cookie.split('; ');
@@ -37,13 +37,13 @@ const HomeScreen = () => {
   // function sleep(ms) {
   //   return new Promise(resolve => setTimeout(resolve, ms));
   // }
-  
+
   const getProfile = async () => {
     try {
       const token = getTokenFromCookie();
       if (!token) {
         console.error('No se encontró el token en la cookie');
-      // window.location.href = "/";
+        window.location.href = "/";
         return;
       }
       const res = await profile(token);
@@ -75,7 +75,7 @@ const HomeScreen = () => {
       console.error('Error al obtener los datos de los gráficos:', error);
     }
   };
-  
+
 
   useEffect(() => {
     getProfile();
@@ -91,7 +91,7 @@ const HomeScreen = () => {
 
   // console.log(nPH,temperatura,temperaturaAmbiente,nivel,humedadConstante,estado)
 
-  const renderSelectedComponent = () => { 
+  const renderSelectedComponent = () => {
     switch (selectedIcon) {
       case 'home':
         return <Dashborard nPH={nPH} temperatura={temperatura} temperaturaAmbiente={temperaturaAmbiente} nivel={nivel} humedadConstante={humedadConstante} estado={estado} />;
@@ -104,7 +104,7 @@ const HomeScreen = () => {
       case 'nivel':
         return <Nivel nivel={nivel} usuario={usuario} />;
       case 'humedad':
-        return <HumedadScreen humedadConstante={humedadConstante} usuario={usuario}/>;
+        return <HumedadScreen humedadConstante={humedadConstante} usuario={usuario} />;
       default:
         return null;
     }
@@ -114,44 +114,44 @@ const HomeScreen = () => {
     <div className='cuerpo'>
       <div className='header'>
         <div className='subheader'>
-        
-        <a href="https://www.google.com">
-        <img src={hojaLogo} alt="Visita el sitio Web!" className="logoPrincipal" />
-        </a>
-        <div className='iconos'>
-          <FontAwesomeIcon
-            icon={faHome}
-            className={selectedIcon === 'home' ? 'icon selected' : 'icon'}
-            onClick={() => handleIconClick('home')}
-          />
-          <FontAwesomeIcon
-            icon={faChartSimple}
-            className={selectedIcon === 'ph' ? 'icon selected' : 'icon'}
-            onClick={() => handleIconClick('ph')}
-          />
-          <FontAwesomeIcon
-            icon={faTemperatureHalf}
-            className={selectedIcon === 'termometro' ? 'icon selected' : 'icon'}
-            onClick={() => handleIconClick('termometro')}
-          />
-          <FontAwesomeIcon
-            icon={faHouseFloodWater}
-            className={selectedIcon === 'nivel' ? 'icon selected' : 'icon'}
-            onClick={() => handleIconClick('nivel')}
-          />
-          <FontAwesomeIcon
-            icon={faDroplet}
-            className={selectedIcon === 'humedad' ? 'icon selected' : 'icon'}
-            onClick={() => handleIconClick('humedad')}
-          />
-        </div>
-        <div className='perfil'>
-          <FontAwesomeIcon
-            icon={faUser}
-            className={selectedIcon === 'user' ? 'icon selected' : 'icon'}
-            onClick={() => handleIconClick('user')}
-          />
-        </div>
+
+          <a href="https://agrosmrt.vercel.app/">
+            <img src={hojaLogo} alt="Visita el sitio Web!" className="logoPrincipal" />
+          </a>
+          <div className='iconos'>
+            <FontAwesomeIcon
+              icon={faHome}
+              className={selectedIcon === 'home' ? 'icon selected' : 'icon'}
+              onClick={() => handleIconClick('home')}
+            />
+            <FontAwesomeIcon
+              icon={faChartSimple}
+              className={selectedIcon === 'ph' ? 'icon selected' : 'icon'}
+              onClick={() => handleIconClick('ph')}
+            />
+            <FontAwesomeIcon
+              icon={faTemperatureHalf}
+              className={selectedIcon === 'termometro' ? 'icon selected' : 'icon'}
+              onClick={() => handleIconClick('termometro')}
+            />
+            <FontAwesomeIcon
+              icon={faHouseFloodWater}
+              className={selectedIcon === 'nivel' ? 'icon selected' : 'icon'}
+              onClick={() => handleIconClick('nivel')}
+            />
+            <FontAwesomeIcon
+              icon={faDroplet}
+              className={selectedIcon === 'humedad' ? 'icon selected' : 'icon'}
+              onClick={() => handleIconClick('humedad')}
+            />
+          </div>
+          <div className='perfil'>
+            <FontAwesomeIcon
+              icon={faUser}
+              className={selectedIcon === 'user' ? 'icon selected' : 'icon'}
+              onClick={() => handleIconClick('user')}
+            />
+          </div>
         </div>
       </div>
       <div className='contenido'>
