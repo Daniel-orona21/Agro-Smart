@@ -48,11 +48,11 @@ const HomeScreen = () => {
         //window.location.href = "/";
         return;
       }
-      const res = await profile(token);
+      const res = await profile(cookies);
       setUserData(res.data);
       const user = res.data.usuario;
       setUsuario(user);
-      localStorage.setItem('usuario', 'test'); // Almacena el usuario en el localStorage
+      localStorage.setItem('usuario', user); // Almacena el usuario en el localStorage
       console.log(user)
     } catch (error) {
       console.error('Error al obtener el perfil del usuario:', error);

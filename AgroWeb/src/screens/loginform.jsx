@@ -21,7 +21,7 @@ const LoginForm = () => {
         // console.log("Usuario logeado");
         
         const email =  setUsername(data.email);
-        Cookies.set('email', email);
+        Cookies.set('email', data.email);
         navigate('/home-screen'); // Redirige al usuario a la pantalla home-screen
       }
     }catch(error){
