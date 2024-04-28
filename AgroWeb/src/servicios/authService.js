@@ -33,6 +33,7 @@ export function profile (){
       
 }
 
+export const verifyTokenRequest = async () => axios.get(`/verify`);
 
 // export const profile = async (token) => {
 //     try {

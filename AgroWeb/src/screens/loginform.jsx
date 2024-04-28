@@ -4,6 +4,10 @@ import { loginUser } from "../servicios/authService";
 import { useNavigate } from "react-router-dom"; // Importa useNavigate
 import "../css/login.css";
 import ops from "../componentes/sweet.js";
+import { profile, verifyTokenRequest } from '../servicios/authService';
+import { getFirstDataFromAllCharts } from '../servicios/compService';
+import { createContext, useContext } from "react";
+import Cookies from "js-cookie";
 
 const LoginForm = () => {
   const { handleSubmit, register } = useForm();
@@ -22,6 +26,13 @@ const LoginForm = () => {
         setUser(res.data);
         setIsAuthenticated(true);
         setUsername(data.usuario);
+
+        const res = await verifyTokenRequest(Cookies.token);
+        console.log(res);
+        if (!res.data) return setIsAuthenticated(false);
+        setIsAuthenticated(true);
+        setUser(res.data);
+
         navigate("/home-screen"); // Redirige al usuario a la pantalla home-screen
       }
     } catch (error) {
