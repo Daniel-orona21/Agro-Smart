@@ -129,28 +129,29 @@ app.get('/sensores', async (req, res) => {
 
 app.get('/phcharts/latest', async (req, res) => {
   try {
-      // Encuentra todos los documentos PhChart y selecciona el último
-      const latestPhChart = await PhChart.findOne().sort({ fechaInsercion: -1 });
+    // Encuentra el primer documento PhChart sin ordenar
+    const firstPhChart = await PhChart.findOne();
 
-      // Si no se encuentra ningún documento, devuelve un error
-      if (!latestPhChart) {
-          return res.status(404).json({ message: 'No se encontraron datos de pH.' });
-      }
+// Si no se encuentra ningún documento, devuelve un error
+if (!firstPhChart) {
+  return res.status(404).json({ message: 'No se encontraron datos de pH.' });
+}
 
-      // Obtiene el último valor de la matriz de datos
-      const latestPhValue = latestPhChart.datos[latestPhChart.datos.length - 1];
+// Obtiene el primer valor de la matriz de datos
+const firstPhValue = Number(firstPhChart.datos[0]); // Redondear a un decimal
 
-      // Devuelve el último valor de pH
-      res.json({ ph: latestPhValue });
+// Devuelve el primer valor de pH con un decimal
+res.json({ ph: firstPhValue });
   } catch (error) {
-      console.error('Error al obtener el último valor de pH:', error);
-      res.status(500).json({ message: 'Error al obtener el último valor de pH.' });
+    console.error('Error al obtener el primer valor de pH:', error);
+    res.status(500).json({ message: 'Error al obtener el primer valor de pH.' });
   }
 });
+
 app.get('/nivelcharts/latest', async (req, res) => {
   try {
       // Encuentra todos los documentos PhChart y selecciona el último
-      const latestNivelChart = await NivelChart.findOne().sort({ fechaInsercion: -1 });
+      const latestNivelChart = await NivelChart.findOne();
 
       // Si no se encuentra ningún documento, devuelve un error
       if (!latestNivelChart) {
@@ -158,7 +159,7 @@ app.get('/nivelcharts/latest', async (req, res) => {
       }
 
       // Obtiene el último valor de la matriz de datos
-      const latestNivelValue = latestNivelChart.datos[latestNivelChart.datos.length - 1];
+      const latestNivelValue = latestNivelChart.datos[0];
 
       // Devuelve el último valor de nivel
       res.json({ nivel: latestNivelValue });
@@ -169,29 +170,31 @@ app.get('/nivelcharts/latest', async (req, res) => {
 });
 app.get('/humedadcharts/latest', async (req, res) => {
   try {
-      const latestHumedadChart = await HumedadChart.findOne().sort({ fechaInsercion: -1 });
+    const latestHumedadChart = await HumedadChart.findOne();
 
-      if (!latestHumedadChart) {
-          return res.status(404).json({ message: 'No se encontraron datos de humedad.' });
-      }
+    if (!latestHumedadChart) {
+      return res.status(404).json({ message: 'No se encontraron datos de humedad.' });
+    }
 
-      const latestHumedadValue = latestHumedadChart.datos[latestHumedadChart.datos.length - 1];
+    const latestHumedadValue = latestHumedadChart.datos[0];
 
-      res.json({ humedad: latestHumedadValue });
+
+    res.json({ humedad: latestHumedadValue });
   } catch (error) {
-      console.error('Error al obtener el último valor de humedad:', error);
-      res.status(500).json({ message: 'Error al obtener el último valor de humedad.' });
+    console.error('Error al obtener el último valor de humedad:', error);
+    res.status(500).json({ message: 'Error al obtener el último valor de humedad.' });
   }
 });
+
 app.get('/ambientecharts/latest', async (req, res) => {
   try {
-      const latestAmbienteChart = await TemperaturaChart.findOne().sort({ fechaInsercion: -1 });
+      const latestAmbienteChart = await TemperaturaChart.findOne();
 
       if (!latestAmbienteChart) {
           return res.status(404).json({ message: 'No se encontraron datos de ambiente.' });
       }
 
-      const latestAmbienteValue = latestAmbienteChart.datosAmbiente[latestAmbienteChart.datosAmbiente.length - 1];
+      const latestAmbienteValue = latestAmbienteChart.datosAmbiente[0];
 
       res.json({ datosAmbiente: latestAmbienteValue }); // Modificado para devolver solo datosAmbiente
   } catch (error) {
@@ -202,13 +205,13 @@ app.get('/ambientecharts/latest', async (req, res) => {
 
 app.get('/aguacharts/latest', async (req, res) => {
   try {
-      const latestAguaChart = await TemperaturaChart.findOne().sort({ fechaInsercion: -1 });
+      const latestAguaChart = await TemperaturaChart.findOne();
 
       if (!latestAguaChart) {
           return res.status(404).json({ message: 'No se encontraron datos de agua.' });
       }
 
-      const latestAguaValue = latestAguaChart.datosAgua[latestAguaChart.datosAgua.length - 1];
+      const latestAguaValue = latestAguaChart.datosAgua[0];
 
       res.json({ datosAgua: latestAguaValue }); // Modificado para devolver solo datosAgua
   } catch (error) {
@@ -220,15 +223,18 @@ app.get('/aguacharts/latest', async (req, res) => {
 
 app.get('/phcharts/all', async (req, res) => {
   try {
-    const last23PhCharts = await PhChart.find().sort({ fechaInsercion: -1 }).limit(23);
+    const last23PhCharts = await PhChart.find();
 
     if (!last23PhCharts || last23PhCharts.length === 0) {
       return res.status(404).json({ message: 'No se encontraron datos de pH.' });
     }
+    
+   const allPhValues = last23PhCharts.flatMap(chart => chart.datos);
 
-    const allPhValues = last23PhCharts.flatMap(chart => chart.datos);
+   const limitedPhValues = allPhValues.slice(0, 24).reverse();
 
-    res.json({ ph: allPhValues });
+    res.json({ ph: limitedPhValues });
+
   } catch (error) {
     console.error('Error al obtener los datos de pH:', error);
     res.status(500).json({ message: 'Error al obtener los datos de pH.' });
@@ -239,7 +245,7 @@ app.get('/phcharts/all', async (req, res) => {
 
 app.get('/nivelcharts/all', async (req, res) => {
   try {
-    const last23NivelCharts = await NivelChart.find().sort({ fechaInsercion: -1 }).limit(23);
+    const last23NivelCharts = await NivelChart.find();
 
     if (!last23NivelCharts || last23NivelCharts.length === 0) {
       return res.status(404).json({ message: 'No se encontraron datos de nivel.' });
@@ -247,7 +253,9 @@ app.get('/nivelcharts/all', async (req, res) => {
 
     const allNivelValues = last23NivelCharts.flatMap(chart => chart.datos);
 
-    res.json({ nivel: allNivelValues });
+    const limitedNivelValues = allNivelValues.slice(0, 24).reverse();
+
+    res.json({ nivel: limitedNivelValues });
   } catch (error) {
     console.error('Error al obtener los datos de nivel:', error);
     res.status(500).json({ message: 'Error al obtener los datos de nivel.' });
@@ -256,7 +264,7 @@ app.get('/nivelcharts/all', async (req, res) => {
 
 app.get('/humedadcharts/all', async (req, res) => {
   try {
-    const last23HumedadCharts = await HumedadChart.find().sort({ fechaInsercion: -1 }).limit(23);
+    const last23HumedadCharts = await HumedadChart.find();
 
     if (!last23HumedadCharts || last23HumedadCharts.length === 0) {
       return res.status(404).json({ message: 'No se encontraron datos de humedad.' });
@@ -264,7 +272,9 @@ app.get('/humedadcharts/all', async (req, res) => {
 
     const allHumedadValues = last23HumedadCharts.flatMap(chart => chart.datos);
 
-    res.json({ humedad: allHumedadValues });
+    const limitedHumedadValues = allHumedadValues.slice(0, 24).reverse();
+
+    res.json({ humedad: limitedHumedadValues });
   } catch (error) {
     console.error('Error al obtener los datos de humedad:', error);
     res.status(500).json({ message: 'Error al obtener los datos de humedad.' });
@@ -281,7 +291,9 @@ app.get('/aguacharts/all', async (req, res) => {
 
     const allAguaValues = last23AguaCharts.flatMap(chart => chart.datosAgua);
 
-    res.json({ agua: allAguaValues });
+    const limitedAguaValues = allAguaValues.slice(0, 24).reverse();
+
+    res.json({ agua: limitedAguaValues });
   } catch (error) {
     console.error('Error al obtener los datos de agua:', error);
     res.status(500).json({ message: 'Error al obtener los datos de agua.' });
@@ -298,7 +310,10 @@ app.get('/ambientecharts/all', async (req, res) => {
 
     const allAmbienteValues = last23AmbienteCharts.flatMap(chart => chart.datosAmbiente);
 
-    res.json({ ambiente: allAmbienteValues });
+    const limitedAmbienteValues = allAmbienteValues.slice(0, 24).reverse();
+
+
+    res.json({ ambiente: limitedAmbienteValues });
   } catch (error) {
     console.error('Error al obtener los datos de ambiente:', error);
     res.status(500).json({ message: 'Error al obtener los datos de ambiente.' });

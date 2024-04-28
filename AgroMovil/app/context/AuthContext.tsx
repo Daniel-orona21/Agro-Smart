@@ -75,29 +75,30 @@ export const AuthProvider = ({ children }: any) => {
   }, []);
 
   useEffect(() => {
-    const getLatestNivelValue = async () => {
+    const getFirstNivelValue = async () => {
       try {
         const response = await axios.get(`${API_URL}/nivelcharts/latest`);
         const { nivel } = response.data;
-        setNivelValue(nivel); // actualizar el estado con el último valor de nivel
+        setNivelValue(nivel); // actualizar el estado con el primer valor de nivel
+        console.log('nivel: ', nivel)
       } catch (error) {
-        console.error('Error al obtener el último valor de Nivel:', error);
+        console.error('Error al obtener el primer valor de nivel:', error);
       }
     };
-
-    getLatestNivelValue();
-
+  
+    getFirstNivelValue(); // llamar a la función cuando se monta el componente
   }, []);
+  
 
   useEffect(() => {
     const getLatestHumedadValue = async () => {
       try {
         const response = await axios.get(`${API_URL}/humedadcharts/latest`);
         const { humedad } = response.data;
-        console.log("Último valor de humedad:", humedad);
+        console.log("primer valor de humedad:", humedad);
         setHumedadValue(humedad); // actualizar el estado con el último valor de nivel
       } catch (error) {
-        console.error('Error al obtener el último valor de humedad:', error);
+        console.error('Error al obtener el primer valor de humedad:', error);
       }
     };
 
@@ -110,10 +111,10 @@ export const AuthProvider = ({ children }: any) => {
       try {
         const response = await axios.get(`${API_URL}/ambientecharts/latest`);
         const { datosAmbiente } = response.data;
-        console.log("Último valor de ambiente:", datosAmbiente);
+        console.log("primer valor de ambiente:", datosAmbiente);
         setAmbienteValue(datosAmbiente); // actualizar el estado con el último valor de ambiente
       } catch (error) {
-        console.error('Error al obtener el último valor de ambiente:', error);
+        console.error('Error al obtener el primer valor de ambiente:', error);
       }
     };
 
@@ -143,7 +144,7 @@ export const AuthProvider = ({ children }: any) => {
       try {
         const response = await axios.get(`${API_URL}/phcharts/all`);
         if (response.data && response.data.ph && Array.isArray(response.data.ph)) {
-          const last23PhValues = response.data.ph.slice(-23); // Obtener los últimos 23 datos de pH
+          const last23PhValues = response.data.ph; // Obtener los últimos 23 datos de pH
           setPhValueAll(last23PhValues); // actualizar el estado con los últimos 23 valores de pH
         } else {
           console.error('La respuesta del servidor no contiene los datos de pH esperados.');
