@@ -43,9 +43,9 @@ const ambiente = (temperaturaAmbiente) => {
 
 //semaforo para Nivel
 const tanque = (nivel) => {
-  if (nivel === 'Lleno') {
+  if (nivel = 1) {
     return semaforo1;
-  } else if (nivel === 'Medio') {
+  } else if (nivel = 0) {
     return semaforo2;
   } else {
     return semaforo3;
