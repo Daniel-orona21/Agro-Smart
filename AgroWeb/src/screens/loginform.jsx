@@ -4,6 +4,7 @@ import { loginUser } from '../servicios/authService';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import '../css/login.css';
 import ops from '../componentes/sweet.js'
+import Cookies from "js-cookie";
 
 const LoginForm = () => {
   const { handleSubmit, register } = useForm();
@@ -19,7 +20,8 @@ const LoginForm = () => {
       if (res) {
         // console.log("Usuario logeado");
         
-        setUsername(data.email);
+        const email =  setUsername(data.email);
+        Cookies.set('email', email);
         navigate('/home-screen'); // Redirige al usuario a la pantalla home-screen
       }
     }catch(error){

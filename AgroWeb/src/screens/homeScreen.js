@@ -29,7 +29,7 @@ const HomeScreen = () => {
     const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
     if (tokenCookie) {
       const token = tokenCookie.split('=')[1];
-      localStorage.setItem('token',token) // <- token en local
+      //localStorage.setItem('token',token) // <- token en local
       return token;
     }
     return null;
@@ -50,7 +50,7 @@ const HomeScreen = () => {
       setUserData(res.data);
       const user = res.data.usuario;
       setUsuario(user);
-      localStorage.setItem('usuario', user); // Almacena el usuario en el localStorage
+      localStorage.setItem('usuario', 'test'); // Almacena el usuario en el localStorage
       console.log(user)
     } catch (error) {
       console.error('Error al obtener el perfil del usuario:', error);
