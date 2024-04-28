@@ -10,6 +10,8 @@ const LoginForm = () => {
   const navigate = useNavigate(); // Obtiene la función de navegación
   const [username, setUsername] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
+
 
   
   const onSubmitlogin = async (data) => {
