@@ -20,7 +20,7 @@ export const addUser = async(req, res)=>{
         const saveUser = await newUser.save()
         
         const token = await createAccessToken({id: saveUser._id, usuario: saveUser.usuario})
-        res.cookie('token', token, { sameSite: 'Lax', domain: 'agroback.onrender.com'  })
+        res.cookie('token', token, { sameSite: 'Lax', domain: '.agroback.onrender.com',secure: true  })
         
         res.json(token)
 
@@ -55,7 +55,7 @@ export const login = async(req, res) => {
             email: userFound.email,
             usuario: userFound.usuario
         });
-        res.cookie('token', token, { sameSite: 'Lax', domain: 'agroback.onrender.com'  });
+        res.cookie('token', token, { sameSite: 'Lax', domain: '.agroback.onrender.com',secure: true  });
         
         // Devolver el token y el nombre de usuario en la respuesta JSON
         res.json({ token, usuario: userFound.usuario });
