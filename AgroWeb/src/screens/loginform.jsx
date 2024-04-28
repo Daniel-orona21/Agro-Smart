@@ -22,7 +22,7 @@ const LoginForm = () => {
         
         const email =  setUsername(data.usuario);
         console.log(data.usuario, data.username)
-        Cookies.set('Usuario', data.usuario);
+        Cookies.set('Usuario', data.username);
         navigate('/home-screen'); // Redirige al usuario a la pantalla home-screen
       }
     }catch(error){
