@@ -9,6 +9,8 @@ const LoginForm = () => {
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate(); // Obtiene la función de navegación
   const [username, setUsername] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   
   const onSubmitlogin = async (data) => {
     try{
