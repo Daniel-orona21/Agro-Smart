@@ -23,15 +23,14 @@ const HomeScreen = () => {
   const [nPH, setNPH] = useState('');
   const [response, setResponse] = useState('');
   const [estado, setEstado] = useState('');
-  const getTokenFromCookie = () => {
+  const getTokenFromCookie = async () => {
 
-    const cookies = document.cookie.split('; ');
-    const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
-    if (tokenCookie) {
-      const token = tokenCookie.split('=')[1];
-      localStorage.setItem('token',token) // <- token en local
-      return token;
-    }
+    const res = await verifyTokenRequest(cookies.token);
+    console.log(res);
+    if (!res.data) return setIsAuthenticated(false);
+    setIsAuthenticated(true);
+    setUser(res.data);
+    setLoading(false);
     return null;
   };
   // function sleep(ms) {
