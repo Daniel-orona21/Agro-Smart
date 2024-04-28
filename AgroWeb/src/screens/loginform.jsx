@@ -16,10 +16,10 @@ const LoginForm = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
 
-  const onSubmitlogin = async (data) => {
+  const onSubmitlogin =  (data) => {
     try {
       console.log(data);
-      const res = await loginUser(data);
+      const res =  loginUser(data);
       console.log(res);
       if (res) {
         console.log("Usuario logeado");
@@ -27,7 +27,7 @@ const LoginForm = () => {
         setIsAuthenticated(true);
         setUsername(data.usuario);
 
-        const res = await verifyTokenRequest(Cookies.token);
+        const res =  verifyTokenRequest(Cookies.token);
         console.log(res);
         setIsAuthenticated(true);
         setUser(res.data);
