@@ -29,6 +29,19 @@ const NivelChart = ({ datos, data, datosFiltrados, estafiltrado, datosNoFiltrado
         { dia: 'Domingo', promedio: promediosN(144, data) },
     ];
 
+    switch (promedio) {
+        case 0:
+            promedio = 'Bajo';
+            break;
+        case 1:
+            promedio = 'Medio';
+            break;
+        case 2:
+            promedio = 'Lleno';
+            break;
+        default:
+            break;
+    }
     const niveles = ['Bajo', 'Medio', 'Lleno'];
 
     return (

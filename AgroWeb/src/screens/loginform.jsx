@@ -19,9 +19,7 @@ const LoginForm = () => {
       if (res) {
         // console.log("Usuario logeado");
 
-        const email = setUsername(data.usuario);
-        console.log(data.usuario, data.username);
-        Cookies.set("Usuario", data.usuario);
+        const email = setUsername(data.email);
         navigate("/home-screen"); // Redirige al usuario a la pantalla home-screen
       }
     } catch (error) {
