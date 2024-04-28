@@ -1,20 +1,20 @@
 import mongoose from "mongoose";
 
 const pezSchema = new mongoose.Schema({
-    cantidad:{
+    cantidad: {
         type: String,
         require: true
     },
-    tipo:{
+    tipo: {
         type: String,
         require: true,
-        
+
     },
-    usuario:{
+    usuario: {
         type: String,
         require: true
     },
-    
+
 
 })
 

@@ -7,7 +7,3 @@ app.listen(3000)
 console.log("UP on port ", 3000)
 
 
-// setInterval(() => {
-//     updateSensorfake("test");
-//   }, 100);
-  

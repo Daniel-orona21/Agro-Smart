@@ -14,8 +14,6 @@ function App() {
         <Route path="/home-screen" element={<HomeScreen />} />
         <Route path="/Seleccion-pez" element={<PantallaPez />} />
         <Route path="/Seleccion-cultivo" element={<PantallaCultivo />} />
-
-
       </Routes>
     </Router>
   );

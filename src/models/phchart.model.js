@@ -1,19 +1,19 @@
 import mongoose from "mongoose";
 
 const phChartSchema = new mongoose.Schema({
-    usuario:{
-        type:String,
-        required:true,
-        unique:true,
+    usuario: {
+        type: String,
+        required: true,
+        unique: true,
     },
-    invernadero:{
-        type:String,
-        
+    invernadero: {
+        type: String,
+
     },
-    datos:[Number],
-    fechaInsercion:[Date]
-        
-   
+    datos: [Number],
+    fechaInsercion: [Date]
+
+
 });
 
-export default mongoose.model('phchart',phChartSchema);
+export default mongoose.model('phchart', phChartSchema);

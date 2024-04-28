@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { login, addUser, profile,logout } from "../controllers/auth.controller.js";
+import { login, addUser, profile, logout } from "../controllers/auth.controller.js";
 import { authRequired } from "../middlewares/validateToken.js"; // este es para comprobar que el usuario esta logeado
 
 

@@ -31,7 +31,7 @@ export const updateSensorfake = async (usuario, res = null) => {
       },
       { upsert: true, new: true }
     );
-    
+
     // Actualiza el gráfico de humedad
     const humedadfake = await humedadchart.findOneAndUpdate(
       { usuario },
@@ -43,7 +43,7 @@ export const updateSensorfake = async (usuario, res = null) => {
       },
       { upsert: true, new: true }
     );
-    
+
     // Actualiza el gráfico de nivel
     const nivelfake = await nivelchart.findOneAndUpdate(
       { usuario },
@@ -55,7 +55,7 @@ export const updateSensorfake = async (usuario, res = null) => {
       },
       { upsert: true, new: true }
     );
-    
+
     // Actualiza el gráfico de temperatura
     const temperaturafake = await temperaturachart.findOneAndUpdate(
       { usuario },

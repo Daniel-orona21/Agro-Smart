@@ -1,19 +1,19 @@
 import mongoose from "mongoose";
 
 const nivelChartSchema = new mongoose.Schema({
-    usuario:{
-        type:String,
-        required:true,
-        uniquie:true
+    usuario: {
+        type: String,
+        required: true,
+        uniquie: true
     },
-    invernadero:{
-        type:String,
-        
+    invernadero: {
+        type: String,
+
     },
-    datos:[String],
-    fechaInsercion:[Date]
-        
-   
+    datos: [String],
+    fechaInsercion: [Date]
+
+
 });
 
-export default mongoose.model('nivelchart',nivelChartSchema);
+export default mongoose.model('nivelchart', nivelChartSchema);

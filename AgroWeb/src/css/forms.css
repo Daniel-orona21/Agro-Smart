@@ -1,4 +1,4 @@
-.main1{
+.main1 {
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -12,6 +12,7 @@
 	align-content: contain;
 	flex-direction: column;
 }
+
 .caja1 {
 	width: 350px;
 	height: 500px;
@@ -21,44 +22,49 @@
 	box-shadow: 5px 20px 50px rgba(0, 0, 0, 0.2);
 	backdrop-filter: blur(5px);
 	margin-top: -1rem;
-	display: flex; /* Agregar */
-	align-items: center; /* Agregar */
-	justify-content: center; /* Agregar */
+	display: flex;
+	/* Agregar */
+	align-items: center;
+	/* Agregar */
+	justify-content: center;
+	/* Agregar */
 	flex-direction: column;
 }
+
 .titulo1 {
-	color: rgb(255, 255, 255); 
+	color: rgb(255, 255, 255);
 	text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-	font-size: 90px; 
-	font-weight: bold; 
+	font-size: 90px;
+	font-weight: bold;
 	text-align: center;
 	opacity: .85;
 	margin-top: -3rem;
 	font-family: "Quicksand", sans-serif;
-  }
-.tituloForms{
-    color: rgba(16, 55, 16, 0.778);
-    text-align: center;
-    margin-top: 0px;
-    font-size: 29px;
+}
+
+.tituloForms {
+	color: rgba(16, 55, 16, 0.778);
+	text-align: center;
+	margin-top: 0px;
+	font-size: 29px;
 }
 
 
-.opciones{
+.opciones {
 	width: 65.5%;
 	height: 40px;
 	justify-content: center;
 	display: flex;
-	margin: 20px ;
+	margin: 20px;
 	/* padding: 20px; */
 	border: none;
 	outline: none;
 	border-radius: 5px;
-    margin-top: 2rem;
+	margin-top: 2rem;
 }
 
 .cantidades {
-    width: 60%;
+	width: 60%;
 	height: 20px;
 	justify-content: center;
 	display: flex;
@@ -68,10 +74,11 @@
 	border: none;
 	outline: none;
 	border-radius: 5px;
-    background: #e1e1e1;
+	background: #e1e1e1;
 }
+
 .nombreInv {
-    width: 60%;
+	width: 60%;
 	height: 20px;
 	justify-content: center;
 	display: flex;
@@ -80,10 +87,10 @@
 	border: none;
 	outline: none;
 	border-radius: 5px;
-    background: #e1e1e1;
+	background: #e1e1e1;
 }
 
-.buttonCultivo{
+.buttonCultivo {
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -93,14 +100,15 @@
 	background: #36551d;
 	font-size: 1em;
 	font-weight: bold;
-    margin-top: -5.8rem;
+	margin-top: -5.8rem;
 	outline: none;
 	border: none;
 	border-radius: 5px;
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-.buttonPez{
+
+.buttonPez {
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -110,15 +118,16 @@
 	background: #36551d;
 	font-size: 1em;
 	font-weight: bold;
-    margin-top: 2rem;
+	margin-top: 2rem;
 	outline: none;
 	border: none;
 	border-radius: 5px;
 	transition: .2s ease-in;
 	cursor: pointer;
 }
+
 @media only screen and (max-width: 600px) {
-    .caja{
+	.caja {
 		width: 280px;
 		height: 380px;
 		overflow: hidden;
@@ -130,7 +139,8 @@
 		flex-direction: row;
 		display: flex;
 	}
-	.buttonPez{
+
+	.buttonPez {
 		width: 60%;
 		height: 40px;
 		margin: 10px auto;
@@ -147,28 +157,32 @@
 		cursor: pointer;
 		margin-bottom: 2rem;
 	}
-	.tituloForms{
+
+	.tituloForms {
 		color: rgba(16, 55, 16, 0.778);
 		text-align: center;
 		margin-top: 20px;
 		font-size: 18px;
 	}
+
 	.titulo1 {
-		color: rgb(255, 255, 255); 
+		color: rgb(255, 255, 255);
 		text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-		font-size: 50px; 
-		font-weight: bold; 
+		font-size: 50px;
+		font-weight: bold;
 		text-align: center;
 		opacity: .85;
 		margin-top: -3rem;
 		font-family: "Quicksand", sans-serif;
-	  }
-	  .subcaja {
+	}
+
+	.subcaja {
 		width: 280px;
 		height: 380px;
 		flex-shrink: 0;
 		transition: transform 0.5s ease-out;
 	}
+
 	.caja1 {
 		width: 280px;
 		height: 380px;
@@ -178,13 +192,16 @@
 		box-shadow: 5px 20px 50px rgba(0, 0, 0, 0.2);
 		backdrop-filter: blur(5px);
 		margin-top: -1rem;
-		display: flex; /* Agregar */
-		align-items: center; /* Agregar */
-		justify-content: center; /* Agregar */
+		display: flex;
+		/* Agregar */
+		align-items: center;
+		/* Agregar */
+		justify-content: center;
+		/* Agregar */
 		flex-direction: column;
 	}
 
-	input{
+	input {
 		width: 60%;
 		height: 10px;
 		background: #e1e1e1;
@@ -197,7 +214,8 @@
 		outline: none;
 		border-radius: 5px;
 	}
-	.button2{
+
+	.button2 {
 		width: 60%;
 		height: 20px;
 		margin: 10px auto;
@@ -214,7 +232,8 @@
 		transition: .2s ease-in;
 		cursor: pointer;
 	}
-	label{
+
+	label {
 		color: rgba(16, 55, 16, 0.778);
 		font-size: 1.6rem;
 		justify-content: center;
@@ -224,10 +243,12 @@
 		cursor: pointer;
 		transition: .5s ease-in-out;
 	}
-	#chk:checked ~ .login{
+
+	#chk:checked~.login {
 		transform: translateY(-290px);
 	}
-	.button3{
+
+	.button3 {
 		width: 60%;
 		height: 30px;
 		margin: 10px auto;
@@ -248,7 +269,7 @@
 
 /* Media query para pantallas medianas */
 @media only screen and (min-width: 601px) and (max-width: 900px) {
-	.caja{
+	.caja {
 		width: 320px;
 		height: 450px;
 		overflow: hidden;
@@ -260,28 +281,32 @@
 		flex-direction: row;
 		display: flex;
 	}
-	.tituloForms{
+
+	.tituloForms {
 		color: rgba(16, 55, 16, 0.778);
 		text-align: center;
 		margin-top: 20px;
 		font-size: 22px;
 	}
+
 	.titulo1 {
-		color: rgb(255, 255, 255); 
+		color: rgb(255, 255, 255);
 		text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-		font-size: 70px; 
-		font-weight: bold; 
+		font-size: 70px;
+		font-weight: bold;
 		text-align: center;
 		opacity: .85;
 		margin-top: -3rem;
 		font-family: "Quicksand", sans-serif;
-	  }
-	  .subcaja {
+	}
+
+	.subcaja {
 		width: 320px;
 		height: 450px;
 		flex-shrink: 0;
 		transition: transform 0.5s ease-out;
 	}
+
 	.caja1 {
 		width: 320px;
 		height: 450px;
@@ -291,13 +316,16 @@
 		box-shadow: 5px 20px 50px rgba(0, 0, 0, 0.2);
 		backdrop-filter: blur(5px);
 		margin-top: -1rem;
-		display: flex; /* Agregar */
-		align-items: center; /* Agregar */
-		justify-content: center; /* Agregar */
+		display: flex;
+		/* Agregar */
+		align-items: center;
+		/* Agregar */
+		justify-content: center;
+		/* Agregar */
 		flex-direction: column;
 	}
 
-	input{
+	input {
 		width: 60%;
 		height: 15px;
 		background: #e1e1e1;
@@ -310,7 +338,8 @@
 		outline: none;
 		border-radius: 5px;
 	}
-	.button2{
+
+	.button2 {
 		width: 60%;
 		height: 30px;
 		margin: 10px auto;
@@ -327,7 +356,8 @@
 		transition: .2s ease-in;
 		cursor: pointer;
 	}
-	label{
+
+	label {
 		color: rgba(16, 55, 16, 0.778);
 		font-size: 2rem;
 		justify-content: center;
@@ -337,10 +367,12 @@
 		cursor: pointer;
 		transition: .5s ease-in-out;
 	}
-	#chk:checked ~ .login{
+
+	#chk:checked~.login {
 		transform: translateY(-320px);
 	}
-	.button3{
+
+	.button3 {
 		width: 60%;
 		height: 30px;
 		margin: 10px auto;
@@ -357,8 +389,5 @@
 		transition: .2s ease-in;
 		cursor: pointer;
 	}
-	
+
 }
-
-
-  

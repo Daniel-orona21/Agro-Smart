@@ -24,28 +24,15 @@ const HomeScreen = () => {
   const [nPH, setNPH] = useState('');
   const [response, setResponse] = useState('');
   const [estado, setEstado] = useState('');
-  // const getTokenFromCookie = () => {
-
-  //   const cookies = Cookies.get();   
-  //   if (cookies) {
-  //     const token = tokenCookie.split('=')[1];
-  //     //localStorage.setItem('token',token) // <- token en local
-  //     return token;
-  //   }
-  //   return null;
-  // };
-  // function sleep(ms) {
-  //   return new Promise(resolve => setTimeout(resolve, ms));
-  // }
 
   const getProfile = async () => {
     try {
       // const token = getTokenFromCookie();
-      const cookies = Cookies.get();   
+      const cookies = Cookies.get();
 
       if (!cookies) {
         console.error('No se encontró el token en la cookie');
-        //window.location.href = "/";
+        window.location.href = "/";
         return;
       }
       const res = await profile(cookies.token);

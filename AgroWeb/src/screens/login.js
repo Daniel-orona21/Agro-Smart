@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../css/login.css';
 import { addUser } from '../servicios/authService';
 import { useForm } from 'react-hook-form';
-import LoginForm from './loginform'; 
+import LoginForm from './loginform';
 import { useNavigate } from 'react-router-dom';
 import ops from '../componentes/sweet.js'
 const Login = ({ desplazarCaja }) => {
@@ -42,13 +42,13 @@ const Login = ({ desplazarCaja }) => {
     };
 
     const onSubmit = async (data) => {
-        try{
+        try {
             console.log(data);
             const res = await addUser(data);
             console.log(res);
             navigate(`/Seleccion-pez?usuario=${data.usuario}`);
 
-        }catch(error){
+        } catch (error) {
             ops()
         }
     };
@@ -92,7 +92,7 @@ const Login = ({ desplazarCaja }) => {
                     <input
                         type="password"
                         name="confirmarPswd"
-                        {...register("confirmPassword", { 
+                        {...register("confirmPassword", {
                             required: true,
                             validate: value => value === getValues("password") || "Las contraseñas no coinciden"
                         })}
@@ -105,7 +105,7 @@ const Login = ({ desplazarCaja }) => {
                     <button className='button2' type="submit" aria-hidden="true" disabled={!botonHabilitado}>Registrarse</button>
                 </form>
             </div>
-            <LoginForm/>
+            <LoginForm />
         </div>
     );
 };

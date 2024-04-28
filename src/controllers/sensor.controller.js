@@ -2,7 +2,7 @@ import Sensor from '../models/sensor.model.js';
 // let existProd = true
 const fechaActual = new Date();
 
-export const createSensor=async(req,res)=>{
+export const createSensor = async (req, res) => {
     const {
         usuario,
         invernadero,
@@ -12,9 +12,9 @@ export const createSensor=async(req,res)=>{
         ph,
         temperaturaAmbiente,
         humedadAmbiente
-    }=req.body;
-    try{
-        const newSensor= new Sensor({
+    } = req.body;
+    try {
+        const newSensor = new Sensor({
             usuario,
             invernadero,
             pez,
@@ -23,17 +23,17 @@ export const createSensor=async(req,res)=>{
             ph,
             temperaturaAmbiente,
             humedadAmbiente,
-            fechaAlta:fechaActual,
-            status:true
+            fechaAlta: fechaActual,
+            status: true
         });
         const saveSensor = await newSensor.save()
-        const l= await Sensor.find();
+        const l = await Sensor.find();
         res.send(l);
-    
-    } catch (error){
+
+    } catch (error) {
         console.log(error)
     }
-    
+
 
 }
 
@@ -50,35 +50,35 @@ export const updateSensor = async (req, res) => {
         humedadAmbiente,
     } = req.body; // Obtén los datos actualizados del cuerpo de la solicitud
     try {
-      const updatedSensor = await Sensor.findOneAndUpdate(
-        { usuario: usuario }, 
-        {
-            invernadero:invernadero,        
-            pez:pez,
-            temperaturaEstanque,
-            nivel,
-            ph,
-            temperaturaAmbiente,
-            humedadAmbiente,
-        },
-        { new: true }
-      );
-      if (!updatedSensor) {
-        return res.status(404).send('Sensor no encontrado'); 
-      }
-      const Sensores = await Sensor.find(); 
-      res.send(Sensores); 
+        const updatedSensor = await Sensor.findOneAndUpdate(
+            { usuario: usuario },
+            {
+                invernadero: invernadero,
+                pez: pez,
+                temperaturaEstanque,
+                nivel,
+                ph,
+                temperaturaAmbiente,
+                humedadAmbiente,
+            },
+            { new: true }
+        );
+        if (!updatedSensor) {
+            return res.status(404).send('Sensor no encontrado');
+        }
+        const Sensores = await Sensor.find();
+        res.send(Sensores);
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
-  };
-  
-  export const readSensor = async (req, res) => {
+};
+
+export const readSensor = async (req, res) => {
     const { usuario } = req.params; // Obtener el usuario de los parámetros de la solicitud
     try {
         // console.log(usuario+"hola"+req.body)
         // Buscar el sensor correspondiente al usuario
-        const sensor = await Sensor.findOne({ usuario:usuario });
+        const sensor = await Sensor.findOne({ usuario: usuario });
 
         if (!sensor) {
             return res.status(404).send('Sensor no encontrado para el usuario especificado');
@@ -101,11 +101,11 @@ export const updateSensor = async (req, res) => {
 };
 
 
-  export const deleteSensor = async (req, res) => {
+export const deleteSensor = async (req, res) => {
     const { nombre } = req.body;
 
     try {
-        
+
         const updatedSensor = await Sensor.findOneAndUpdate(
             { nombre: nombre },
             {

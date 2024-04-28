@@ -2,7 +2,7 @@ import Invernadero from '../models/invernadero.model.js';
 // let existProd = true
 const fechaActual = new Date();
 
-export const createInvernadero=async(req,res,)=>{
+export const createInvernadero = async (req, res,) => {
     const {
         name,
         pez,
@@ -10,26 +10,26 @@ export const createInvernadero=async(req,res,)=>{
         capacidad,
         usuario,
         fechaAlta
-    }=req.body;
-    try{
-        const newInvernadero= new Invernadero({
+    } = req.body;
+    try {
+        const newInvernadero = new Invernadero({
             name,
             pez,
             cultivo,
             capacidad,
             usuario,
-            status:true,
-            fechaAlta:fechaActual
+            status: true,
+            fechaAlta: fechaActual
 
         });
         const saveInvernadero = await newInvernadero.save()
-        const l= await Invernadero.find();
+        const l = await Invernadero.find();
         res.send(l);
-    
-    } catch (error){
+
+    } catch (error) {
         console.log(error)
     }
-    
+
     // res.send("Invernadero registrado");
 }
 
@@ -42,37 +42,37 @@ export const updateInvernadero = async (req, res) => {
         usuario
     } = req.body; // Obtén los datos actualizados del cuerpo de la solicitud
     try {
-      const updatedInvernadero = await Invernadero.findOneAndUpdate(
-        { name: name }, 
-        {
-            pez,
-            cultivo,
-            capacidad,
-            usuario
-        },
-        { new: true }
-      );
-      if (!updatedInvernadero) {
-        return res.status(404).send('Invernadero no encontrado'); 
-      }
-      const Invernaderoes = await Invernadero.find(); 
-      res.send(Invernaderoes); 
+        const updatedInvernadero = await Invernadero.findOneAndUpdate(
+            { name: name },
+            {
+                pez,
+                cultivo,
+                capacidad,
+                usuario
+            },
+            { new: true }
+        );
+        if (!updatedInvernadero) {
+            return res.status(404).send('Invernadero no encontrado');
+        }
+        const Invernaderoes = await Invernadero.find();
+        res.send(Invernaderoes);
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
-  };
-  
-  export const readInvernadero = async (req, res) => {
+};
+
+export const readInvernadero = async (req, res) => {
     const Invernaderoes = await Invernadero.find();
     return res.send(Invernaderoes);
-  }
+}
 
 
-  export const deleteInvernadero = async (req, res) => {
+export const deleteInvernadero = async (req, res) => {
     const { name } = req.body;
 
     try {
-        
+
         const updatedInvernadero = await Invernadero.findOneAndUpdate(
             { nombre: nombre },
             {

@@ -4,34 +4,34 @@ const invernaderoSchema = new mongoose.Schema({
     name: {
         type: String,
         require: true,
-        trim:true
+        trim: true
     },
-    pez:{
+    pez: {
         type: String,
-        require: true,       
+        require: true,
     },
-    cultivo:{
-        type: String,
-        require: true
-    },
-    capacidad:{
+    cultivo: {
         type: String,
         require: true
     },
-    usuario:{
+    capacidad: {
         type: String,
         require: true
     },
-    status:{
-        type:Boolean,
+    usuario: {
+        type: String,
         require: true
     },
-    fechaAlta:{
-        type:Date,
+    status: {
+        type: Boolean,
+        require: true
+    },
+    fechaAlta: {
+        type: Date,
         required: true
     },
-    fechaBaja:{
-        type:Date
+    fechaBaja: {
+        type: Date
     }
 
 })

@@ -12,6 +12,7 @@
     font-family: "Josefin Sans", sans-serif;
     color: black;
 }
+
 .titulopantallas {
     font-size: 40px;
     font-family: "Josefin Sans", sans-serif;
@@ -46,7 +47,7 @@
 }
 
 .recomendaciones::-webkit-scrollbar {
-    width: 0; 
+    width: 0;
 }
 
 .tituloR {
@@ -82,6 +83,7 @@
     margin: 1rem;
     flex-direction: column;
 }
+
 .box2 {
     background-color: rgb(241, 241, 241);
     width: 16rem;
@@ -93,7 +95,7 @@
     flex-direction: column;
     margin-top: -7rem;
     margin-bottom: -10rem;
-    position:inherit;
+    position: inherit;
 }
 
 
@@ -111,6 +113,7 @@
     margin-top: 13px;
     color: rgb(119, 119, 119);
 }
+
 .boxTitulo3 {
     font-size: 15px;
     text-align: center;
@@ -149,10 +152,11 @@ li {
 }
 
 .contenidoR ul {
-    list-style-type: disc; 
-    padding-left: 2rem; 
+    list-style-type: disc;
+    padding-left: 2rem;
     margin-top: 1.5rem;
 }
+
 .dashboard {
     flex-direction: column;
     height: 100%;
@@ -162,7 +166,7 @@ li {
 }
 
 .cuerpoPH {
-    width: 100%; 
+    width: 100%;
     margin-left: 5rem;
 }
 
@@ -174,23 +178,28 @@ li {
 .promedio {
     width: 100%;
 }
+
 .graficas {
     width: 65%;
 }
+
 .grafica1 {
     width: 100%
 }
+
 .grafica2 {
     width: 55%;
     position: absolute;
     height: 30%;
 }
+
 .filtro {
 
     margin-bottom: 30px;
 
 }
-.cosas{
+
+.cosas {
     width: 25%;
     display: flex;
     align-items: center;
@@ -199,20 +208,20 @@ li {
     height: 47rem;
 }
 
-  
-  .buttonf {
-    margin: 5px; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 5px; 
+
+.buttonf {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
     color: white;
-  }
+}
 
-  .MuiPaper-root.MuiAccordion-root {
+.MuiPaper-root.MuiAccordion-root {
     background-color: rgb(241, 241, 241);
     overflow: hidden;
-  }
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -222,6 +231,7 @@ li {
         color: black;
         text-align: center;
     }
+
     .datos {
         width: 40rem;
         height: auto;
@@ -230,17 +240,20 @@ li {
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .dashboard {
         flex-direction: column;
         align-items: center;
         display: flex;
     }
+
     .datosDash {
         flex-direction: column;
         display: flex;
         width: 100%;
         align-items: center;
     }
+
     .recomendaciones {
         background: linear-gradient(rgb(0, 0, 0), rgb(74, 74, 74));
         width: 35rem;
@@ -250,14 +263,16 @@ li {
         color: white;
         font-size: 1rem;
         margin-top: 3rem;
-        margin-left: 0rem;  
+        margin-left: 0rem;
         margin-bottom: 5rem;
     }
+
     .contenedorph {
         flex-direction: column;
         display: flex;
     }
-    .cosas{
+
+    .cosas {
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -267,10 +282,11 @@ li {
         margin-top: 15rem;
     }
 
-    .cuerpoPH{
+    .cuerpoPH {
         margin-top: -60%;
     }
 }
+
 @media only screen and (max-width: 450px) {
     .titulo2 {
         font-size: 40px;
@@ -278,6 +294,7 @@ li {
         color: black;
         text-align: center;
     }
+
     .datos {
         width: 40rem;
         height: auto;
@@ -286,6 +303,7 @@ li {
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .dashboard {
         flex-direction: column;
         height: 100%;
@@ -294,6 +312,7 @@ li {
         margin-left: 12.7rem;
 
     }
+
     .recomendaciones {
         background: linear-gradient(rgb(0, 0, 0), rgb(74, 74, 74));
         width: 35rem;
@@ -303,14 +322,16 @@ li {
         color: rgb(255, 255, 255);
         font-size: 1rem;
         margin-top: 3rem;
-        margin-left: 0rem;  
+        margin-left: 0rem;
         margin-bottom: 5rem;
     }
+
     .contenedorph {
         flex-direction: column;
         display: flex;
     }
-    .cosas{
+
+    .cosas {
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -320,20 +341,21 @@ li {
         margin-top: 15rem;
     }
 
-    .cuerpoPH{
+    .cuerpoPH {
         margin-top: -60%;
     }
-    
+
 }
 
 /* Media query para pantallas medianas */
 @media only screen and (min-width: 601px) and (max-width: 900px) {
-	.titulo2 {
+    .titulo2 {
         font-size: 40px;
         font-family: "Josefin Sans", sans-serif;
         color: black;
         text-align: center;
     }
+
     .datos {
         width: 40rem;
         height: auto;
@@ -342,17 +364,21 @@ li {
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .dashboard {
         flex-direction: column;
         align-items: center;
-        display: flex;;
+        display: flex;
+        ;
     }
+
     .datosDash {
         flex-direction: column;
         display: flex;
         width: 100%;
         align-items: center;
     }
+
     .recomendaciones {
         background: linear-gradient(rgb(0, 0, 0), rgb(74, 74, 74));
         width: 35rem;
@@ -362,14 +388,16 @@ li {
         color: white;
         font-size: 1rem;
         margin-top: 3rem;
-        margin-left: 0rem;  
+        margin-left: 0rem;
         margin-bottom: 5rem;
     }
+
     .contenedorph {
         flex-direction: column;
         display: flex;
     }
-    .cosas{
+
+    .cosas {
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -379,13 +407,10 @@ li {
         margin-top: 15rem;
     }
 
-    .cuerpoPH{
+    .cuerpoPH {
         margin-top: -60%;
     }
-    
 
-	
+
+
 }
-
-
-  

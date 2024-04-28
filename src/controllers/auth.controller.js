@@ -2,42 +2,42 @@ import User from '../models/user.model.js'
 import bcrypt from 'bcryptjs'
 import { createAccessToken } from '../libs/jwt.js'; //Esta es la funcion para crear el token 
 
-export const addUser = async(req, res)=>{
+export const addUser = async (req, res) => {
     const {
-        password, 
+        password,
         usuario,
         email
-    }=req.body;
-    try{
+    } = req.body;
+    try {
 
         const passwordHash = await bcrypt.hash(password, 10)
 
         const newUser = new User({
-        password: passwordHash, 
-        usuario,
-        email
+            password: passwordHash,
+            usuario,
+            email
         });
         const saveUser = await newUser.save()
-        
-        const token = await createAccessToken({id: saveUser._id, usuario: saveUser.usuario})
-        res.cookie('token', token, { sameSite: 'None', domain: '.agroback.onrender.com',secure: true  })
-        
+
+        const token = await createAccessToken({ id: saveUser._id, usuario: saveUser.usuario })
+        res.cookie('token', token, { sameSite: 'None', domain: '.agroback.onrender.com', secure: true })
+
         res.json(token)
 
-        
 
-    } catch (error){
+
+    } catch (error) {
         res.status(501).json({ message: error.message });
 
     }
 };
 
-export const login = async(req, res) => {
+export const login = async (req, res) => {
     const { password, email } = req.body;
     try {
         // Buscar el usuario en la base de datos por su correo electrónico
         const userFound = await User.findOne({ email });
-        
+
         // Verificar si el usuario existe
         if (!userFound) {
             return res.status(400).json({ message: "User not found" });
@@ -55,8 +55,8 @@ export const login = async(req, res) => {
             email: userFound.email,
             usuario: userFound.usuario
         });
-        res.cookie('token', token, { sameSite: 'None', domain: '.agroback.onrender.com',secure: true  });
-        
+        res.cookie('token', token, { sameSite: 'None', domain: '.agroback.onrender.com', secure: true });
+
         // Devolver el token y el nombre de usuario en la respuesta JSON
         res.json({ token, usuario: userFound.usuario });
     } catch (error) {
@@ -64,21 +64,21 @@ export const login = async(req, res) => {
     }
 };
 
-export const logout = (req,res)=>{
-    res.cookie('token', "", {expires: new Date(0),});
+export const logout = (req, res) => {
+    res.cookie('token', "", { expires: new Date(0), });
     return res.sendStatus(201)
 }
 
-export const profile = async (req,res)=>{
-  
+export const profile = async (req, res) => {
+
     const userFound = await User.findById(req.user.id)
 
-    if (!userFound) return res.status(400).json({message: "User not found"});
+    if (!userFound) return res.status(400).json({ message: "User not found" });
     // console.log(userFound)
     return res.json({
         id: userFound._id,
         usuario: userFound.usuario,
-        email:userFound.email,
+        email: userFound.email,
         createdAt: userFound.createdAt,
         updatedAt: userFound.updatedAt
     })
