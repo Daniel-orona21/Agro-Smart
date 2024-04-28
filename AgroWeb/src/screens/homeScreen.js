@@ -48,7 +48,7 @@ const HomeScreen = () => {
         //window.location.href = "/";
         return;
       }
-      const res = await profile(cookies);
+      const res = await profile(cookies.token);
       setUserData(res.data);
       const user = res.data.usuario;
       setUsuario(user);
