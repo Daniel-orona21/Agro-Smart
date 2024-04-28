@@ -18,7 +18,9 @@ const LoginForm = () => {
       // console.log(res);
       if (res) {
         // console.log("Usuario logeado");
-        setUsername(data.email);
+        setUser(res.data);
+        setIsAuthenticated(true);
+        setUsername(data.usuario);
         navigate('/home-screen'); // Redirige al usuario a la pantalla home-screen
       }
     }catch(error){
