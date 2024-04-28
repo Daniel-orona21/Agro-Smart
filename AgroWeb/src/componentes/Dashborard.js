@@ -43,7 +43,7 @@ const ambiente = (temperaturaAmbiente) => {
 
 //semaforo para Nivel
 const tanque = (nivel) => {
-  if (nivel = 'Lleno') {
+  if (nivel === 'Lleno') {
     return semaforo1;
   } else if (nivel === 'Medio') {
     return semaforo2;
@@ -82,6 +82,9 @@ const sistema = (estado) => {
 export const Dashborard = ({ nPH, temperatura, temperaturaAmbiente, nivel, humedadConstante, estado }) => {
   // console.log(nPH,temperatura,temperaturaAmbiente,nivel,humedadConstante,estado)
   const { img: estadoImg, texto: estadoTexto } = sistema(estado);
+  if (nivel = 1) {
+    nivel = "Lleno"
+  }else{nivel = "Vacio"}
   return (
     <div className='dashboard'>
       <p className='titulo2'>INVERNADERO</p>
