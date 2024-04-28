@@ -29,11 +29,12 @@ const LoginForm = () => {
 
         const res = await verifyTokenRequest(Cookies.token);
         console.log(res);
-        if (!res.data) return setIsAuthenticated(false);
         setIsAuthenticated(true);
         setUser(res.data);
 
         navigate("/home-screen"); // Redirige al usuario a la pantalla home-screen
+        if (!res.data) return setIsAuthenticated(false);
+        
       }
     } catch (error) {
       ops();
