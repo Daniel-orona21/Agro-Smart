@@ -9,14 +9,11 @@ import hojaLogo from '../img/hoja.png'
 import { PhScreen } from '../componentes/PhScreen';
 import { Nivel } from '../componentes/nivelScreen';
 import { HumedadScreen } from '../componentes/HumedadScreen';
-import { profile, verifyTokenRequest } from '../servicios/authService';
+import { profile } from '../servicios/authService';
 import { getFirstDataFromAllCharts } from '../servicios/compService';
-import { createContext, useContext } from "react";
-import Cookies from "js-cookie";
 
 const HomeScreen = () => {
   const [selectedIcon, setSelectedIcon] = useState('home');
-  const [user, setUser] = useState(null);
   const [userData, setUserData] = useState(null);
   const [usuario, setUsuario] = useState(localStorage.getItem('usuario') || '');
   const [temperatura, setTemperatura] = useState(null);
@@ -26,15 +23,15 @@ const HomeScreen = () => {
   const [nPH, setNPH] = useState('');
   const [response, setResponse] = useState('');
   const [estado, setEstado] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const getTokenFromCookie = () => {
 
-  const getTokenFromCookie = async () => {
-
-    const res = await verifyTokenRequest(Cookies.token);
-    console.log(res);
-    if (!res.data) return setIsAuthenticated(false);
-    setIsAuthenticated(true);
-    setUser(res.data);
+    const cookies = document.cookie.split('; ');
+    const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
+    if (tokenCookie) {
+      const token = tokenCookie.split('=')[1];
+      localStorage.setItem('token',token) // <- token en local
+      return token;
+    }
     return null;
   };
   // function sleep(ms) {
