@@ -21,9 +21,9 @@ const semaforoPH = (nPH) => {
 
 //semaforo para temperatura del agua
 const aguaTemperatura = (temperatura) => {
-  if (temperatura >= 20 && temperatura <= 35) {
+  if (temperatura >= 20 && temperatura <= 30) {
     return semaforo1;
-  } else if ((temperatura >= 13 && temperatura < 19) || (temperatura > 36 && temperatura <= 40)) {
+  } else if ((temperatura >= 13 && temperatura < 19) || (temperatura > 31 && temperatura <= 40)) {
     return semaforo2;
   } else {
     return semaforo3;
