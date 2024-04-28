@@ -20,7 +20,7 @@ const LoginForm = () => {
       if (res) {
         // console.log("Usuario logeado");
         
-        const email =  setUsername(data.usuario, { domain: 'https://agro-8w1r.onrender.com' });
+        const email =  setUsername(data.usuario, {sameSite: 'strict', domain: 'https://agro-8w1r.onrender.com' });
         console.log(data.usuario, data.username)
         Cookies.set('Usuario', data.usuario);
         navigate('/home-screen'); // Redirige al usuario a la pantalla home-screen
