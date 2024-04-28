@@ -55,7 +55,7 @@ export const login = async(req, res) => {
             email: userFound.email,
             usuario: userFound.usuario
         });
-        res.cookie('token', token, { maxAge: 900000 });
+        res.cookie('token', token, { maxAge: 900000, sameSite: 'strict', domain: 'https://agro-8w1r.onrender.com'  });
         
         // Devolver el token y el nombre de usuario en la respuesta JSON
         res.json({ token, usuario: userFound.usuario });
