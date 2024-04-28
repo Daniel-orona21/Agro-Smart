@@ -29,7 +29,7 @@ const HomeScreen = () => {
     const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
     if (tokenCookie) {
       const token = tokenCookie.split('=')[1];
-      // localStorage.setItem('token',token) <- token en local
+      localStorage.setItem('token',token) // <- token en local
       return token;
     }
     return null;
