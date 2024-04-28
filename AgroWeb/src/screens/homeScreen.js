@@ -43,7 +43,7 @@ const HomeScreen = () => {
       const token = getTokenFromCookie();
       if (!token) {
         console.error('No se encontró el token en la cookie');
-        window.location.href = "/";
+        //window.location.href = "/";
         return;
       }
       const res = await profile(token);
