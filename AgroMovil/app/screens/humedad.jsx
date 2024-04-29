@@ -116,11 +116,9 @@ const HumedadScreen = () => {
   }
 
   const estado = () => {
-    if (humedadConstante >= 60 && humedadConstante <= 70) {
+    if (humedadConstante >= 0 && humedadConstante <= 50) {
       return 'OK';
-    } else if (humedadConstante < 50) {
-      return 'BAJO';
-    } else if (humedadConstante > 70) {
+    } else if (humedadConstante > 50) {
       return 'ALTO';
     }
   };
@@ -163,8 +161,8 @@ const HumedadScreen = () => {
             </View>
 
             <BlurView intensity={50} tint={theme} style={styles.recomendaciones}>
-              <Text style={[styles.h1, { color: textColor }]}>Recomendación</Text>
-              <Text style={[styles.h2, { color: textColor }]}>Ajusta la humedad alrededor del 70% para crear condiciones ideales, especialmente durante la fase de germinación y crecimiento inicial de las plantas.</Text>
+              <Text style={[styles.h1, { color: textColor }]}>¡IMPORTANTE!</Text>
+              <Text style={[styles.h2, { color: textColor }]}>Mantener baja la humedad es clave para prevenir la oxidación de los componentes. Controlarla garantiza el buen funcionamiento y la durabilidad de los equipos.</Text>
               <Image source={info} style={styles.info}></Image>
             </BlurView>
           </View>
@@ -365,7 +363,7 @@ const styles = StyleSheet.create({
   },
   h2: {
     color: 'white',
-    fontSize: windowWidth * 0.032,
+    fontSize: windowWidth * 0.0319,
     marginTop: 10,
     textAlign: 'justify'
   },

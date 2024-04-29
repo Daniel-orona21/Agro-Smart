@@ -141,7 +141,7 @@ const NivelAguaScreen = ( ) => {
       <Animatable.Image 
           source={info} 
           style={styles.info2} 
-          animation="pulse" 
+          animation="rotate" 
           iterationCount="infinite" 
           duration={2000} 
           iterationDelay={0}

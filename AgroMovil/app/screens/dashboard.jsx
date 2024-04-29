@@ -89,9 +89,9 @@ let niveltxt;
   
   //Semaforo para Ambiente
   const ambiente = () => {
-    if (temperaturaAmbiente >= 18 && temperaturaAmbiente <= 24) {
+    if (temperaturaAmbiente >= 0 && temperaturaAmbiente <= 35) {
       return require('../../assets/semaforo1.png');
-    } else if ((temperaturaAmbiente >= 15 && temperaturaAmbiente <= 17) || (temperaturaAmbiente > 24 && temperaturaAmbiente <= 27)) {
+    } else if ((temperaturaAmbiente >= 35 && temperaturaAmbiente <= 40)) {
       return require('../../assets/semaforo2.png');
     } else {
       return require('../../assets/semaforo3.png');
@@ -100,9 +100,9 @@ let niveltxt;
   
   //semaforo para agua
   const aguaTemperatura = () => {
-    if (temperatura >= 10 && temperatura <= 24) {
+    if (temperatura >= 20 && temperatura <= 30) {
       return require('../../assets/semaforo1.png');
-    } else if ((temperatura >= 2 && temperatura < 10) || (temperatura > 24 && temperatura <= 32)) {
+    } else if ((temperatura >= 13 && temperatura < 19) || (temperatura > 31 && temperatura <= 35)) {
       return require('../../assets/semaforo2.png');
     } else {
       return require('../../assets/semaforo3.png');
@@ -122,9 +122,9 @@ let niveltxt;
   
   //semaforo para humedad
   const humedadS = () => {
-    if (humedadConstante >= 60 && humedadConstante <= 70) {
+    if (humedadConstante >= 0 && humedadConstante <= 45) {
       return require('../../assets/semaforo1.png');
-    } else if ((humedadConstante >= 50 && humedadConstante < 60) || (humedadConstante > 70 && humedadConstante <= 80)) {
+    } else if ((humedadConstante >= 45 && humedadConstante < 60)) {
       return require('../../assets/semaforo2.png');
     } else {
       return require('../../assets/semaforo3.png');

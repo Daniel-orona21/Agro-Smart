@@ -96,8 +96,8 @@ const Ambiente = () => {
       </BlurView>
 
       <BlurView intensity={60} tint={theme} style={styles.recomendaciones}>
-        <Text style={[styles.h1, { color: textColor }]}>Recomendación</Text>
-        <Text style={[styles.h2, { color: textColor }]}>Mantén la temperatura dentro del invernadero entre 18°C y 24°C para proporcionar un entorno favorable para el crecimiento de las plantas.</Text>
+        <Text style={[styles.h1, { color: textColor }]}>¡IMPORTANTE!</Text>
+        <Text style={[styles.h2, { color: textColor }]}>Mantén la temperatura por debajo de los 45°C para evitar cualquier anomalía en el funcionamiento de los sensores, que pueda llevar al deterioro o un mal funcionamiento.</Text>
         <Image source={info} style={styles.info}></Image>
       </BlurView>
       </View>
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
   },
   h2: {
     color: 'white',
-    fontSize: windowWidth*.035,
+    fontSize: windowWidth*.0335,
     marginTop: 10,
     textAlign: 'justify'
   },

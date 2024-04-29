@@ -40,9 +40,9 @@ const TempAgua = () => {
   const horaActual = obtenerHoraRedondeada();
 
   const obtenerImagenSegunTemperatura = () => {
-    if (temperatura >= 10 && temperatura <= 24) {
+    if (temperatura >= 20 && temperatura <= 30) {
       return require('../../assets/pez1.png');
-    } else if ((temperatura >= 2 && temperatura < 10) || (temperatura > 24 && temperatura <= 32)) {
+    } else if ((temperatura >= 13 && temperatura < 19) || (temperatura > 31 && temperatura <= 35)) {
       return require('../../assets/pez2.png');
     } else {
       return require('../../assets/pez3.png');
