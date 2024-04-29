@@ -67,7 +67,7 @@ let niveltxt;
         niveltxt = 'Bajo';
         break;
     case "1":
-        niveltxt = 'Medio';
+        niveltxt = 'Lleno';
         break;
     case "2":
         niveltxt = 'Lleno';

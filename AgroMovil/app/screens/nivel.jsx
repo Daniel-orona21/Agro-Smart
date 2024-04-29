@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ImageBackground, ScrollView, SafeAreaView, Platform} from 'react-native';
+import { View, Text, StyleSheet, Image, ImageBackground, ScrollView, SafeAreaView, Platform, TouchableOpacity, Alert} from 'react-native';
 import { Dimensions } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { fuenteAdaptable, obtenerHoraRedondeada } from './valores';
 import { GraficaNivel } from '../components/graficaNivel';
 import { useTheme } from '../context/themeContext';
 import { useAuth } from '../context/AuthContext';
+import { Audio } from 'expo-av';
+import * as Haptics from 'expo-haptics';
+import * as Animatable from 'react-native-animatable';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -14,6 +17,12 @@ const DimensionesPantalla = windowDimensions.height;
 
 let alto;
 let widthTanke;
+
+async function playSound() {
+  const { sound } = await Audio.Sound.createAsync( require('../../assets/sonidos/alerta.mp3')
+  );
+  await sound.playAsync();
+}
 
 if (DimensionesPantalla >= 600 && DimensionesPantalla <= 700) {
     alto= 219;
@@ -50,7 +59,7 @@ const NivelAguaScreen = ( ) => {
         niveltxt = 'Bajo';
         break;
     case "1":
-        niveltxt = 'Medio';
+        niveltxt = 'Lleno';
         break;
     case "2":
         niveltxt = 'Lleno';
@@ -93,6 +102,16 @@ const NivelAguaScreen = ( ) => {
   const info = theme === 'dark' ? infoB : infoN;
   const tank = theme === 'dark' ? tankB : tankN;
 
+  const handleInfoPress = () => {
+    Alert.alert(
+      "Representación de 0 y 1",
+      "0 = Nivel del estanque Bajo                                 1 = Estanque Lleno",
+      [{ text: "OK"}]
+    );
+    playSound()
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+  };
+
   return (
       <ImageBackground source={imagenFondo} blurRadius={0} style={styles.fondo}>
         <SafeAreaView>
@@ -116,7 +135,20 @@ const NivelAguaScreen = ( ) => {
       </View>
 
       <BlurView intensity={50} tint={theme} style={styles.contenedorGrafica}>
+      <View style={styles.infoGrafica}>
       <Text style={[styles.txt, { color: textColor }]}>A lo largo del Día</Text>
+      <TouchableOpacity onPress={handleInfoPress}>
+      <Animatable.Image 
+          source={info} 
+          style={styles.info2} 
+          animation="pulse" 
+          iterationCount="infinite" 
+          duration={2000} 
+          iterationDelay={0}
+        />
+      </TouchableOpacity>
+      </View>
+      
       <View style={[styles.cajaG, { color: textColor }]}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
       <GraficaNivel />
@@ -167,6 +199,10 @@ const styles = StyleSheet.create({
     margin: 10,
     fontSize: fuenteAdaptable * 0.05,
     fontWeight: '400',
+    textAlign: 'center',
+    width: '75%',
+
+    marginLeft: windowWidth*.08
   },
   contenedorGrafica: {
     height: alto*1.15,
@@ -174,6 +210,14 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     alignItems: 'center',
     width: '95%',
+  },
+  infoGrafica: {
+    width: '100%',
+    flexDirection: 'row',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+
   },
   caja: {
     flexDirection: 'row',
@@ -213,6 +257,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 14,
     top: 14
+  },
+  info2: {
+    width: windowWidth*.055,
+    height: windowWidth*.055,
   },
 tanque:{
   width: windowWidth*.37,
